@@ -19,7 +19,7 @@ export const profile = {
     linkedin: '',
     // Optional extras — leave '' to hide:
     website: '',
-    resumePdf: '', // e.g. '/resume.pdf' if you drop a PDF into public/
+    resumePdf: '/resume.pdf', // e.g. '/resume.pdf' if you drop a PDF into public/
   },
 
   // 2–4 sentences. Who you are, what you're good at, what you're looking for.
