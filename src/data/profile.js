@@ -82,7 +82,7 @@ export const featuredProject = {
   ],
   stack: ['Next.js 16', 'JavaScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Stripe', 'Square'],
   demoUrl: 'https://dreamy-cafe.vercel.app',
-  repoUrl: 'https://github.com/phuanh20001/DreamyCafe',
+  repoUrl: 'https://github.com/phuanh20001/DreamyCafe-POS',
 }
 
 // Supporting projects. Guidance:
