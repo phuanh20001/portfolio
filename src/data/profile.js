@@ -8,13 +8,13 @@ export const profile = {
   name: 'Ngoc Phu Anh Nguyen',
   // The one line under your name. Aim for a role + specialty, e.g.
   // "Full-stack developer — I build production web apps end to end".
-  tagline: 'Full-stack developer — I build and ship production web apps end to end',
+  tagline: 'Full-stack developer — I build and ship production systems, with a focus on payments & integrations',
   location: 'ACT, Australia',
 
   // Shown in the hero and footer. Delete any you don't use; the icons/links
   // only render for the ones you fill in.
   links: {
-    email: 'phuanh20001@gmail.com',
+    email: 'john.phuanhnguyen.dev@gmail.com',
     github: 'https://github.com/phuanh20001',
     linkedin: '',
     // Optional extras — leave '' to hide:
