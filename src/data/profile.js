@@ -16,7 +16,7 @@ export const profile = {
   links: {
     email: 'john.phuanhnguyen.dev@gmail.com',
     github: 'https://github.com/phuanh20001',
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/john-phuanhnguyen-dev',
     // Optional extras — leave '' to hide:
     website: '',
     resumePdf: '/resume.pdf', // e.g. '/resume.pdf' if you drop a PDF into public/
