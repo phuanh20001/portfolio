@@ -1,4 +1,5 @@
 import { profile, featuredProject, otherProjects } from '@/data/profile'
+import EmailButton from './EmailButton'
 
 // A placeholder is any string still wrapped in [brackets]. We hide fields that
 // haven't been filled in yet so a half-edited profile never ships broken links.
@@ -69,7 +70,7 @@ export default function Home() {
         )}
 
         <div className="mt-6 flex flex-wrap gap-3">
-          {email && <LinkButton href={`mailto:${email}`} primary>Email</LinkButton>}
+          {email && <EmailButton email={email} />}
           {github && <LinkButton href={github}>GitHub</LinkButton>}
           {linkedin && <LinkButton href={linkedin}>LinkedIn</LinkButton>}
           {website && <LinkButton href={website}>Website</LinkButton>}
