@@ -1,5 +1,6 @@
 import { profile, featuredProject, otherProjects } from '@/data/profile'
 import EmailButton from './EmailButton'
+import Reveal from './Reveal'
 
 // A placeholder is any string still wrapped in [brackets]. We hide fields that
 // haven't been filled in yet so a half-edited profile never ships broken links.
@@ -18,6 +19,9 @@ function Chip({ children }) {
   )
 }
 
+const focusRing =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950'
+
 function LinkButton({ href, children, primary }) {
   if (!real(href)) return null
   return (
@@ -26,9 +30,11 @@ function LinkButton({ href, children, primary }) {
       target={href.startsWith('http') ? '_blank' : undefined}
       rel="noreferrer"
       className={
-        primary
-          ? 'inline-flex items-center gap-1.5 rounded-lg bg-gray-900 dark:bg-white px-4 py-2 text-sm font-semibold text-white dark:text-gray-900 hover:opacity-90 transition'
-          : 'inline-flex items-center gap-1.5 rounded-lg border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-900 transition'
+        (primary
+          ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:opacity-90'
+          : 'border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-900') +
+        ' inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold hover:-translate-y-0.5 transition ' +
+        focusRing
       }
     >
       {children}
@@ -39,10 +45,12 @@ function LinkButton({ href, children, primary }) {
 function Section({ id, title, children }) {
   return (
     <section id={id} className="mt-16 scroll-mt-8">
-      <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
-        {title}
-      </h2>
-      {children}
+      <Reveal>
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
+          {title}
+        </h2>
+        {children}
+      </Reveal>
     </section>
   )
 }
@@ -60,22 +68,45 @@ export default function Home() {
   )
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+    <main className="relative mx-auto max-w-3xl px-6 py-16 sm:py-24">
+      {/* Subtle background glow — a neutral spotlight, no colour, behind everything. */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-32 left-1/2 h-[480px] w-[880px] max-w-[140vw] -translate-x-1/2 rounded-full bg-gray-200/60 dark:bg-gray-800/25 blur-3xl" />
+      </div>
+
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <header>
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">{profile.name}</h1>
-        <p className="mt-3 text-lg text-gray-600 dark:text-gray-400">{profile.tagline}</p>
+        <Reveal>
+          <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-800 bg-gray-50/70 dark:bg-gray-900/50 px-3 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            Open to work · Canberra &amp; Remote
+          </span>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <h1 className="mt-5 text-4xl sm:text-5xl font-bold tracking-tight">{profile.name}</h1>
+        </Reveal>
+        <Reveal delay={140}>
+          <p className="mt-3 text-lg text-gray-600 dark:text-gray-400">{profile.tagline}</p>
+        </Reveal>
         {real(profile.location) && (
-          <p className="mt-1 text-sm text-gray-500">{profile.location}</p>
+          <Reveal delay={180}>
+            <p className="mt-1 text-sm text-gray-500">{profile.location}</p>
+          </Reveal>
         )}
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          {email && <EmailButton email={email} />}
-          {github && <LinkButton href={github}>GitHub</LinkButton>}
-          {linkedin && <LinkButton href={linkedin}>LinkedIn</LinkButton>}
-          {website && <LinkButton href={website}>Website</LinkButton>}
-          {resumePdf && <LinkButton href={resumePdf}>Résumé (PDF)</LinkButton>}
-        </div>
+        <Reveal delay={240}>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {email && <EmailButton email={email} />}
+            {github && <LinkButton href={github}>GitHub</LinkButton>}
+            {linkedin && <LinkButton href={linkedin}>LinkedIn</LinkButton>}
+            {website && <LinkButton href={website}>Website</LinkButton>}
+            {resumePdf && <LinkButton href={resumePdf}>Résumé (PDF)</LinkButton>}
+          </div>
+        </Reveal>
       </header>
 
       {/* ── About ────────────────────────────────────────────────────────── */}
@@ -89,7 +120,7 @@ export default function Home() {
 
       {/* ── Featured project: DreamyCafe ─────────────────────────────────── */}
       <Section id="featured" title="Featured Project">
-        <article className="rounded-2xl border border-gray-200 dark:border-gray-800 p-6 sm:p-8">
+        <article className="group rounded-2xl border border-gray-200 dark:border-gray-800 p-6 sm:p-8 transition duration-300 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-lg hover:shadow-gray-200/60 dark:hover:shadow-black/40">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <h3 className="text-2xl font-bold">{featuredProject.name}</h3>
             <div className="flex gap-2">
@@ -126,7 +157,7 @@ export default function Home() {
             {shownOthers.map((p, i) => (
               <article
                 key={i}
-                className="rounded-xl border border-gray-200 dark:border-gray-800 p-5 flex flex-col"
+                className="group rounded-xl border border-gray-200 dark:border-gray-800 p-5 flex flex-col transition duration-300 hover:border-gray-300 dark:hover:border-gray-700 hover:-translate-y-1 hover:shadow-md hover:shadow-gray-200/60 dark:hover:shadow-black/40"
               >
                 <h3 className="text-lg font-semibold">{p.name}</h3>
                 {real(p.blurb) && (
@@ -143,12 +174,12 @@ export default function Home() {
                 )}
                 <div className="mt-4 flex items-center gap-3 text-sm">
                   {real(p.demoUrl) && (
-                    <a href={p.demoUrl} target="_blank" rel="noreferrer" className="font-semibold underline underline-offset-4">
+                    <a href={p.demoUrl} target="_blank" rel="noreferrer" className="font-semibold underline underline-offset-4 hover:text-gray-500 dark:hover:text-gray-400 transition">
                       Demo
                     </a>
                   )}
                   {real(p.repoUrl) && (
-                    <a href={p.repoUrl} target="_blank" rel="noreferrer" className="font-semibold underline underline-offset-4">
+                    <a href={p.repoUrl} target="_blank" rel="noreferrer" className="font-semibold underline underline-offset-4 hover:text-gray-500 dark:hover:text-gray-400 transition">
                       Code
                     </a>
                   )}
@@ -230,12 +261,12 @@ export default function Home() {
       )}
 
       {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <footer className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-8 text-sm text-gray-500 flex flex-wrap items-center gap-x-6 gap-y-2">
+      <Reveal as="footer" className="mt-20 border-t border-gray-200 dark:border-gray-800 pt-8 text-sm text-gray-500 flex flex-wrap items-center gap-x-6 gap-y-2">
         <span>© {new Date().getFullYear()} {profile.name}</span>
-        {email && <a href={`mailto:${email}`} className="hover:text-gray-900 dark:hover:text-gray-200">{email}</a>}
-        {github && <a href={github} target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-gray-200">GitHub</a>}
-        {linkedin && <a href={linkedin} target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-gray-200">LinkedIn</a>}
-      </footer>
+        {email && <a href={`mailto:${email}`} className="hover:text-gray-900 dark:hover:text-gray-200 transition">{email}</a>}
+        {github && <a href={github} target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-gray-200 transition">GitHub</a>}
+        {linkedin && <a href={linkedin} target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-gray-200 transition">LinkedIn</a>}
+      </Reveal>
     </main>
   )
 }
