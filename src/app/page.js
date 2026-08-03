@@ -31,9 +31,9 @@ function LinkButton({ href, children, primary }) {
       rel="noreferrer"
       className={
         (primary
-          ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:opacity-90'
-          : 'border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800') +
-        ' inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold hover:-translate-y-0.5 transition ' +
+          ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:opacity-90 hover:shadow-gray-400/50 dark:hover:shadow-black/50'
+          : 'border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-gray-300/50 dark:hover:shadow-black/40') +
+        ' inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold hover:-translate-y-1 hover:shadow-md active:translate-y-0 transition-all duration-200 ' +
         focusRing
       }
     >
