@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ngoc Phu Anh Nguyen — Résumé</title>
+<title>Ngoc Phu Anh Nguyen Résumé</title>
 <style>
   /* ── Print setup: A4, tight margins so it fits one page ─────────────── */
   @page { size: A4; margin: 8mm 13mm; }
@@ -125,7 +125,7 @@
 
   <header>
     <h1>Ngoc Phu Anh Nguyen</h1>
-    <p class="tagline">Full-stack developer — I build and ship production systems, with a focus on payments &amp; integrations</p>
+    <p class="tagline">Full-stack developer who builds and ships production systems, with a focus on payments &amp; integrations</p>
     <div class="contact">
       <span>ACT, Australia</span>
       <a href="mailto:john.phuanhnguyen.dev@gmail.com">john.phuanhnguyen.dev@gmail.com</a>
@@ -141,7 +141,7 @@
     <h2>Summary</h2>
     <p class="summary">
       Full-stack developer who takes systems all the way to production, not just to a demo.
-      Strongest work is DreamyCafe — a self-hosted point-of-sale and online-ordering platform
+      Strongest work is DreamyCafe, a self-hosted point-of-sale and online-ordering platform
       that runs a real coffee shop’s till and takes Stripe and Square payments. Focused on the
       parts that make software trustworthy: exact money handling, clear security boundaries, and
       graceful behaviour when the network drops. Seeking a graduate/junior full-stack or payments-integration role.
@@ -171,10 +171,10 @@
       </div>
       <div class="entry-sub">Production point-of-sale &amp; online-ordering system for a coffee shop</div>
       <ul class="bullets">
-        <li>Dual-processor payments — Stripe or Square behind one interface, so the POS, split-tender and refund flows are identical either way; each order records which processor charged it, so refunds always route back correctly.</li>
+        <li>Dual-processor payments: Stripe or Square behind one interface, so the POS, split-tender and refund flows are identical either way; each order records which processor charged it, so refunds always route back correctly.</li>
         <li>In-person card terminals and signed, idempotent webhooks integrated end to end (Stripe Terminal manual auth-and-capture with card-brand blocking, Square Terminal); hardened against a completion race that had charged cards with no order saved.</li>
-        <li>Exact money handling with decimal.js throughout — never floating-point cents; server-side price recomputation on every online order, plus a reconciliation report that flags any order drifting from Square by more than a cent.</li>
-        <li>Hard LAN/public trust boundary — POS and admin stay on the shop network, only customer routes reach the internet via a Cloudflare Tunnel; offline-tolerant PWA keeps cash sales working when the internet drops.</li>
+        <li>Exact money handling with decimal.js throughout, never floating-point cents; server-side price recomputation on every online order, plus a reconciliation report that flags any order drifting from Square by more than a cent.</li>
+        <li>Hard LAN/public trust boundary: POS and admin stay on the shop network, only customer routes reach the internet via a Cloudflare Tunnel; offline-tolerant PWA keeps cash sales working when the internet drops.</li>
       </ul>
       <div class="stack"><b>Stack:</b> Next.js 16, JavaScript, PostgreSQL, Prisma, Tailwind, Stripe, Square</div>
     </div>
@@ -204,7 +204,7 @@
         <span class="entry-title">CryptoWallet</span>
         <span class="entry-meta">github.com/phuanh20001/CryptoWallet</span>
       </div>
-      <div class="entry-sub">Ethereum wallet — send transactions and read balances</div>
+      <div class="entry-sub">Ethereum wallet for sending transactions and reading balances</div>
       <p>Express backend using ethers.js to talk to the network behind a React front end.</p>
       <div class="stack"><b>Stack:</b> Node.js, Express, ethers.js, React</div>
     </div>
@@ -226,14 +226,14 @@
     <div class="entry">
       <div class="entry-head">
         <span class="entry-title">Bachelor of Information Technology</span>
-        <span class="entry-meta">2023 — 2026</span>
+        <span class="entry-meta">2023–2026</span>
       </div>
       <div class="entry-sub">Crown Institute of Higher Education, Australia</div>
     </div>
     <div class="entry">
       <div class="entry-head">
         <span class="entry-title">Bachelor of English Pedagogy</span>
-        <span class="entry-meta">2018 — 2023</span>
+        <span class="entry-meta">2018–2023</span>
       </div>
       <div class="entry-sub">Saigon University, Vietnam</div>
     </div>
