@@ -31,7 +31,7 @@ export const profile = {
     'payments over the counter and online. I care ' +
     'about the unglamorous parts that make software trustworthy: exact money ' +
     'handling, clear security boundaries, and graceful behaviour when the ' +
-    'network drops. I have just finished my IT degree and I am looking for a ' +
+    "network drops. I've just finished my IT degree and I'm looking for a " +
     'full-stack or payments-integration role where I can keep building things ' +
     'people actually use.',
 

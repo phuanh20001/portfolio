@@ -5,7 +5,7 @@ import { profile } from '@/data/profile'
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
 
 export const metadata = {
-  title: `${profile.name} — Portfolio`,
+  title: `${profile.name} | Portfolio`,
   description: profile.tagline,
 }
 
