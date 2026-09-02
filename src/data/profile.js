@@ -25,13 +25,15 @@ export const profile = {
   // 2–4 sentences. Who you are, what you're good at, what you're looking for.
   about:
     "I'm a full-stack developer who likes taking systems all the way to " +
-    'production, not just to a demo. My strongest work is DreamyCafe — a ' +
-    "self-hosted point-of-sale and online-ordering platform that runs a real " +
-    'coffee shop’s till, prints dockets, and takes Stripe and Square card ' +
-    'payments. I care about the unglamorous parts that make software ' +
-    'trustworthy: exact money handling, clear security boundaries, and graceful ' +
-    'behaviour when the network drops. I’m looking for a graduate/junior ' +
-    'full-stack role where I can keep building things people actually use.',
+    'production, not just to a demo. My strongest work is Muster POS, a ' +
+    'self-hosted point-of-sale and online-ordering platform with a paying ' +
+    'shop on it: it runs the till at Ichi Cafe in Kippax, ACT, prints their ' +
+    'dockets, and takes card payments over the counter and online. I care ' +
+    'about the unglamorous parts that make software trustworthy: exact money ' +
+    'handling, clear security boundaries, and graceful behaviour when the ' +
+    'network drops. I have just finished my IT degree and I am looking for a ' +
+    'full-stack or payments-integration role where I can keep building things ' +
+    'people actually use.',
 
   // Group your skills however you like. Add/remove groups and items freely.
   skills: [
@@ -39,7 +41,7 @@ export const profile = {
     { group: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'HTML/CSS'] },
     { group: 'Backend', items: ['Node.js', 'Express', 'FastAPI', 'Prisma'] },
     { group: 'Databases', items: ['PostgreSQL', 'MongoDB', 'SQLite'] },
-    { group: 'Payments & Web3', items: ['Stripe', 'Square', 'ethers.js', 'Solidity / Hardhat'] },
+    { group: 'Payments & Web3', items: ['Stripe', 'Square', 'Linkly / EFTPOS', 'ethers.js', 'Solidity / Hardhat'] },
     { group: 'Mobile & Cloud', items: ['Android (Java/Kotlin)', 'Vercel', 'Cloudflare Tunnel', 'Git'] },
   ],
 
@@ -52,7 +54,7 @@ export const profile = {
     {
       qualification: 'Bachelor of Information Technology',
       institution: 'Crown Institute of Higher Education, Australia',
-      period: '2023 — 2026',
+      period: 'Completed 2026',
     },
     {
       qualification: 'Bachelor of English Pedagogy',
@@ -63,24 +65,32 @@ export const profile = {
 }
 
 // ─── PROJECTS ────────────────────────────────────────────────────────────────
-// The FEATURED project is DreamyCafe — your strongest asset, already filled in.
+// The FEATURED project is Muster POS — your strongest asset, already filled in.
 // Adjust the copy if you like. Update the demoUrl/repoUrl once the repo is public.
 
 export const featuredProject = {
-  name: 'DreamyCafe POS',
+  name: 'Muster POS',
+  // The shop actually running it. This is the credibility line: it says the
+  // software has a real user, not just a demo URL. Leave either field blank to
+  // hide the line entirely.
+  deployment: {
+    customer: 'Ichi Cafe, Kippax ACT',
+    url: 'https://ichicafekippax.com',
+  },
   blurb:
-    'A production point-of-sale and online-ordering system for a coffee shop — ' +
-    'built to run a real till, print real dockets, and take card payments over ' +
-    'the counter and online. Self-hosted on the shop’s own PC, with only the ' +
-    'customer-facing routes exposed to the internet.',
+    'A production point-of-sale and online-ordering system for cafés, running ' +
+    'the counter at Ichi Cafe. It takes card payments over the counter and ' +
+    'online, prints real dockets, and is self-hosted on the shop’s own PC, ' +
+    'with only the customer-facing routes exposed to the internet.',
   // The engineering decisions that make it portfolio-worthy. Keep these tight.
   highlights: [
-    'Exact money handling — decimal.js everywhere, never floating-point cents; server-side price recomputation on every online order.',
+    'Three card processors behind one interface (Stripe, Square, and a direct bank-terminal integration), so checkout, split-tender and refunds behave identically whichever is active; every order records which processor charged it, so a refund always routes back to the one that took the money.',
+    'A bank EFTPOS terminal integrated at the protocol level rather than through an SDK: binary TCP/IP framing to a CommBank pinpad via Linkly, mid-sale prompts such as signature approval answered from the till, and a durable in-flight record so a crash mid-transaction is recovered on the next boot instead of lost. Built and submitted for Linkly accreditation.',
+    'Exact money handling — decimal.js everywhere, never floating-point cents; server-side price recomputation on every online order, plus a reconciliation report that flags any order drifting from the processor by more than a cent.',
     'A hard LAN/public trust boundary: the full POS and admin stay on the shop network, only customer routes reach the internet through a Cloudflare Tunnel.',
-    'Pluggable Stripe & Square payments with signed, idempotent webhooks and a server-driven card reader.',
     'Offline-tolerant PWA: cash sales keep working when the internet drops but the local server is up.',
   ],
-  stack: ['Next.js 16', 'JavaScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Stripe', 'Square'],
+  stack: ['Next.js 16', 'JavaScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Stripe', 'Square', 'Linkly / EFTPOS'],
   demoUrl: 'https://dreamy-cafe.vercel.app',
   repoUrl: 'https://github.com/phuanh20001/DreamyCafe-POS',
 }

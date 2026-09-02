@@ -141,10 +141,11 @@
     <h2>Summary</h2>
     <p class="summary">
       Full-stack developer who takes systems all the way to production, not just to a demo.
-      Strongest work is DreamyCafe, a self-hosted point-of-sale and online-ordering platform
-      that runs a real coffee shop’s till and takes Stripe and Square payments. Focused on the
-      parts that make software trustworthy: exact money handling, clear security boundaries, and
-      graceful behaviour when the network drops. Seeking a graduate/junior full-stack or payments-integration role.
+      Strongest work is Muster POS, a self-hosted point-of-sale and online-ordering platform that
+      runs the till at a real café and takes card payments through Stripe, Square and a direct
+      bank EFTPOS terminal. Focused on what makes software trustworthy: exact money handling,
+      clear security boundaries, and graceful behaviour when the network drops. Seeking a
+      full-stack or payments-integration role.
     </p>
   </section>
 
@@ -155,7 +156,7 @@
       <dt>Frontend</dt><dd>React, Next.js, Tailwind CSS, HTML/CSS</dd>
       <dt>Backend</dt><dd>Node.js, Express, FastAPI, Prisma</dd>
       <dt>Databases</dt><dd>PostgreSQL, MongoDB, SQLite</dd>
-      <dt>Payments &amp; Web3</dt><dd>Stripe, Square, ethers.js, Solidity / Hardhat</dd>
+      <dt>Payments &amp; Web3</dt><dd>Stripe, Square, Linkly / PC-EFTPOS, ethers.js, Solidity / Hardhat</dd>
       <dt>Mobile &amp; Cloud</dt><dd>Android (Java/Kotlin), Vercel, Cloudflare Tunnel, Git</dd>
       <dt>Practices</dt><dd>AI-assisted development with repo guardrails, exact-money handling, LAN/public security boundaries, tested backups &amp; restore</dd>
     </dl>
@@ -166,17 +167,17 @@
 
     <div class="entry">
       <div class="entry-head">
-        <span class="entry-title">DreamyCafe POS</span>
-        <span class="entry-meta">dreamy-cafe.vercel.app · github.com/phuanh20001/DreamyCafe-POS</span>
+        <span class="entry-title">Muster POS</span>
+        <span class="entry-meta">ichicafekippax.com · github.com/phuanh20001/DreamyCafe-POS</span>
       </div>
-      <div class="entry-sub">Production point-of-sale &amp; online-ordering system for a coffee shop</div>
+      <div class="entry-sub">Point-of-sale &amp; online-ordering platform running the counter at Ichi Cafe, Kippax ACT</div>
       <ul class="bullets">
-        <li>Dual-processor payments: Stripe or Square behind one interface, so the POS, split-tender and refund flows are identical either way; each order records which processor charged it, so refunds always route back correctly.</li>
-        <li>In-person card terminals and signed, idempotent webhooks integrated end to end (Stripe Terminal manual auth-and-capture with card-brand blocking, Square Terminal); hardened against a completion race that had charged cards with no order saved.</li>
-        <li>Exact money handling with decimal.js throughout, never floating-point cents; server-side price recomputation on every online order, plus a reconciliation report that flags any order drifting from Square by more than a cent.</li>
+        <li>Three card processors behind one interface (Stripe, Square, and a direct bank terminal), so checkout, split-tender and refunds behave identically whichever is active; each order records which processor charged it, so a refund always routes back correctly.</li>
+        <li>Integrated a CommBank EFTPOS terminal at the protocol level rather than through an SDK: binary TCP/IP framing via Linkly's on-premises client, mid-sale prompts such as signature approval answered from the till, and a durable in-flight record so a crash mid-transaction is recovered on boot. Built and submitted for Linkly accreditation.</li>
+        <li>Exact money handling with decimal.js throughout, never floating-point cents; server-side price recomputation on every online order, plus a reconciliation report flagging any order that drifts from the processor by more than a cent.</li>
         <li>Hard LAN/public trust boundary: POS and admin stay on the shop network, only customer routes reach the internet via a Cloudflare Tunnel; offline-tolerant PWA keeps cash sales working when the internet drops.</li>
       </ul>
-      <div class="stack"><b>Stack:</b> Next.js 16, JavaScript, PostgreSQL, Prisma, Tailwind, Stripe, Square</div>
+      <div class="stack"><b>Stack:</b> Next.js 16, JavaScript, PostgreSQL, Prisma, Tailwind, Stripe, Square, Linkly / PC-EFTPOS</div>
     </div>
 
     <div class="entry">
@@ -226,7 +227,7 @@
     <div class="entry">
       <div class="entry-head">
         <span class="entry-title">Bachelor of Information Technology</span>
-        <span class="entry-meta">2023–2026</span>
+        <span class="entry-meta">Completed 2026</span>
       </div>
       <div class="entry-sub">Crown Institute of Higher Education, Australia</div>
     </div>

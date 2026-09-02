@@ -118,7 +118,7 @@ export default function Home() {
         </Section>
       )}
 
-      {/* ── Featured project: DreamyCafe ─────────────────────────────────── */}
+      {/* ── Featured project: Muster POS ─────────────────────────────────── */}
       <Section id="featured" title="Featured Project">
         <article className="group rounded-2xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8 transition duration-300 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg hover:shadow-gray-200/60 dark:hover:shadow-black/40">
           <div className="flex items-start justify-between gap-4 flex-wrap">
@@ -128,6 +128,33 @@ export default function Home() {
               <LinkButton href={featuredProject.repoUrl}>Code</LinkButton>
             </div>
           </div>
+
+          {featuredProject.deployment && real(featuredProject.deployment.customer) && (
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              <span className="inline-flex items-center gap-1.5 font-medium text-gray-800 dark:text-gray-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-500" aria-hidden="true" />
+                In production
+              </span>
+              {' at '}
+              {real(featuredProject.deployment.url) ? (
+                <a
+                  href={featuredProject.deployment.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={
+                    'font-medium text-gray-800 dark:text-gray-200 underline underline-offset-4 decoration-gray-300 dark:decoration-gray-600 hover:decoration-gray-800 dark:hover:decoration-gray-200 transition-colors ' +
+                    focusRing
+                  }
+                >
+                  {featuredProject.deployment.customer}
+                </a>
+              ) : (
+                <span className="font-medium text-gray-800 dark:text-gray-200">
+                  {featuredProject.deployment.customer}
+                </span>
+              )}
+            </p>
+          )}
 
           <p className="mt-4 text-base leading-relaxed text-gray-700 dark:text-gray-300">
             {featuredProject.blurb}
