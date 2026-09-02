@@ -8,7 +8,7 @@ export const profile = {
   name: 'Ngoc Phu Anh Nguyen',
   // The one line under your name. Aim for a role + specialty, e.g.
   // "Full-stack developer — I build production web apps end to end".
-  tagline: 'Full-stack developer — I build and ship production systems, with a focus on payments & integrations',
+  tagline: 'Full-stack developer who builds and ships production systems, with a focus on payments & integrations',
   location: 'ACT, Australia',
 
   // Shown in the hero and footer. Delete any you don't use; the icons/links
@@ -26,9 +26,9 @@ export const profile = {
   about:
     "I'm a full-stack developer who likes taking systems all the way to " +
     'production, not just to a demo. My strongest work is Muster POS, a ' +
-    'self-hosted point-of-sale and online-ordering platform with a paying ' +
-    'shop on it: it runs the till at Ichi Cafe in Kippax, ACT, prints their ' +
-    'dockets, and takes card payments over the counter and online. I care ' +
+    'self-hosted point-of-sale and online-ordering platform that runs the ' +
+    'till at Ichi Cafe in Kippax, ACT, prints their dockets, and takes card ' +
+    'payments over the counter and online. I care ' +
     'about the unglamorous parts that make software trustworthy: exact money ' +
     'handling, clear security boundaries, and graceful behaviour when the ' +
     'network drops. I have just finished my IT degree and I am looking for a ' +
@@ -59,7 +59,7 @@ export const profile = {
     {
       qualification: 'Bachelor of English Pedagogy',
       institution: 'Saigon University, Vietnam',
-      period: '2018 — 2023',
+      period: '2018–2023',
     },
   ],
 }
@@ -79,20 +79,20 @@ export const featuredProject = {
   },
   blurb:
     'A production point-of-sale and online-ordering system for cafés, running ' +
-    'the counter at Ichi Cafe. It takes card payments over the counter and ' +
+    'the till at Ichi Cafe. It takes card payments over the counter and ' +
     'online, prints real dockets, and is self-hosted on the shop’s own PC, ' +
     'with only the customer-facing routes exposed to the internet.',
   // The engineering decisions that make it portfolio-worthy. Keep these tight.
   highlights: [
     'Three card processors behind one interface (Stripe, Square, and a direct bank-terminal integration), so checkout, split-tender and refunds behave identically whichever is active; every order records which processor charged it, so a refund always routes back to the one that took the money.',
-    'A bank EFTPOS terminal integrated at the protocol level rather than through an SDK: binary TCP/IP framing to a CommBank pinpad via Linkly, mid-sale prompts such as signature approval answered from the till, and a durable in-flight record so a crash mid-transaction is recovered on the next boot instead of lost. Built and submitted for Linkly accreditation.',
-    'Exact money handling — decimal.js everywhere, never floating-point cents; server-side price recomputation on every online order, plus a reconciliation report that flags any order drifting from the processor by more than a cent.',
+    'A bank EFTPOS terminal integrated at the protocol level rather than through an SDK: binary TCP/IP framing to a CommBank pinpad via Linkly, mid-sale prompts such as signature approval answered from the till, and a durable in-flight record so a crash mid-transaction is recovered on the next boot rather than lost. Built and submitted for Linkly accreditation.',
+    'Exact money handling: decimal.js everywhere, never floating-point cents. Server-side price recomputation on every online order, plus a reconciliation report that flags any order drifting from the processor by more than a cent.',
     'A hard LAN/public trust boundary: the full POS and admin stay on the shop network, only customer routes reach the internet through a Cloudflare Tunnel.',
     'Offline-tolerant PWA: cash sales keep working when the internet drops but the local server is up.',
   ],
   stack: ['Next.js 16', 'JavaScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Stripe', 'Square', 'Linkly / EFTPOS'],
   demoUrl: 'https://dreamy-cafe.vercel.app',
-  repoUrl: 'https://github.com/phuanh20001/DreamyCafe-POS',
+  repoUrl: 'https://github.com/phuanh20001/Muster-POS',
 }
 
 // Supporting projects. Guidance:
@@ -131,7 +131,7 @@ export const otherProjects = [
     name: 'CryptoWallet',
     blurb:
       'An Ethereum crypto wallet. An Express backend uses ethers.js to talk to ' +
-      'the network — sending transactions and reading balances — behind a React ' +
+      'the network, sending transactions and reading balances, behind a React ' +
       'front end.',
     stack: ['Node.js', 'Express', 'ethers.js', 'React'],
     demoUrl: '',
