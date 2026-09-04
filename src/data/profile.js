@@ -24,12 +24,13 @@ export const profile = {
 
   // 2–4 sentences. Who you are, what you're good at, what you're looking for.
   about:
-    'I build software that a business actually runs on, not demos. My main work ' +
-    'is Muster POS, the system behind the counter at Ichi Cafe in Canberra: it ' +
-    "takes card payments in the shop and online, prints the kitchen's dockets, " +
-    'handles bookings and a loyalty card, and keeps selling when the internet ' +
-    'drops out. I wrote it, and I am the one who keeps it running. I have just ' +
-    'finished my IT degree and I am looking for a full-stack or payments role.',
+    'I work at a Canberra cafe, and I also built the system it trades on. Muster ' +
+    "POS takes card payments at the counter and online, prints the kitchen's " +
+    'dockets, handles bookings and a loyalty card, and keeps selling when the ' +
+    "internet drops out. I wrote it, deployed it on the shop's own computer, and " +
+    'I am the one who keeps it running. Working the floor is why it is any good: ' +
+    'I built the till I have to use. I have just finished my IT degree and I am ' +
+    'looking for a full-stack or payments role.',
 
   // Group your skills however you like. Add/remove groups and items freely.
   // Kept short and moved below the work on purpose. A list of tool names proves
@@ -74,13 +75,14 @@ export const featuredProject = {
     url: 'https://ichicafekippax.com',
   },
   blurb:
-    'The point-of-sale system Ichi Cafe runs on every trading day. It takes card ' +
-    "payments at the counter and online, prints the kitchen's dockets, and runs on " +
-    "the shop's own computer, so only the customer-facing pages are reachable from " +
-    'the internet. I am its only developer.',
+    'The point-of-sale system Ichi Cafe trades on every day, where I also work the ' +
+    "counter. It takes card payments in the shop and online, prints the kitchen's " +
+    "dockets, and runs on the shop's own computer, so only the customer-facing " +
+    'pages are reachable from the internet. I am its only developer.',
   // The engineering decisions that make it portfolio-worthy. Keep these tight.
   highlights: [
-    'Every sale the cafe makes goes through software I wrote and still look after on my own. When something breaks before opening, it is mine to fix, usually remotely and before staff arrive.',
+    "I have worked the counter at Ichi Cafe since 2023. In 2026 I built the cafe's till, because from the floor I could see what slowed service down and what went wrong under pressure. Every sale the cafe makes now runs through software I wrote and still look after on my own.",
+    'When something breaks before opening, it is mine to fix, usually remotely and before staff arrive.',
     'The till accepts card payments through three different providers and behaves the same way whichever one is switched on. Each sale remembers who processed it, so a refund always goes back the way the money came in.',
     "For the newest of those I connected the till straight to the bank's card reader, writing the low-level messaging myself instead of using a ready-made plugin. It is now going through the bank's certification.",
     'Money is worked out exactly, never with the small rounding errors ordinary computer maths introduces, and a report flags any sale that disagrees with the payment provider by even one cent.',
@@ -90,6 +92,8 @@ export const featuredProject = {
   stack: ['Next.js 16', 'JavaScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Stripe', 'Square', 'Linkly / EFTPOS'],
   demoUrl: 'https://dreamy-cafe.vercel.app',
   repoUrl: 'https://github.com/phuanh20001/Muster-POS',
+  // The product's own site. Leave '' to hide the button.
+  siteUrl: 'https://musterpos.com',
 }
 
 // Supporting projects. Guidance:

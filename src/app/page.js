@@ -125,6 +125,7 @@ export default function Home() {
             <h3 className="text-2xl font-bold">{featuredProject.name}</h3>
             <div className="flex gap-2">
               <LinkButton href={featuredProject.demoUrl} primary>Live demo →</LinkButton>
+              <LinkButton href={featuredProject.siteUrl}>Product site</LinkButton>
               <LinkButton href={featuredProject.repoUrl}>Code</LinkButton>
             </div>
           </div>
