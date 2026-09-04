@@ -8,7 +8,7 @@ export const profile = {
   name: 'Ngoc Phu Anh Nguyen',
   // The one line under your name. Aim for a role + specialty, e.g.
   // "Full-stack developer — I build production web apps end to end".
-  tagline: 'Full-stack developer who builds and ships production systems, with a focus on payments & integrations',
+  tagline: 'Full-stack developer. I build and look after the systems a business runs on, especially anything that touches money.',
   location: 'ACT, Australia',
 
   // Shown in the hero and footer. Delete any you don't use; the icons/links
@@ -24,25 +24,21 @@ export const profile = {
 
   // 2–4 sentences. Who you are, what you're good at, what you're looking for.
   about:
-    "I'm a full-stack developer who likes taking systems all the way to " +
-    'production, not just to a demo. My strongest work is Muster POS, a ' +
-    'self-hosted point-of-sale and online-ordering platform that runs the ' +
-    'till at Ichi Cafe in Kippax, ACT, prints their dockets, and takes card ' +
-    'payments over the counter and online. I care ' +
-    'about the unglamorous parts that make software trustworthy: exact money ' +
-    'handling, clear security boundaries, and graceful behaviour when the ' +
-    "network drops. I've just finished my IT degree and I'm looking for a " +
-    'full-stack or payments-integration role where I can keep building things ' +
-    'people actually use.',
+    'I build software that a business actually runs on, not demos. My main work ' +
+    'is Muster POS, the system behind the counter at Ichi Cafe in Canberra: it ' +
+    "takes card payments in the shop and online, prints the kitchen's dockets, " +
+    'handles bookings and a loyalty card, and keeps selling when the internet ' +
+    'drops out. I wrote it, and I am the one who keeps it running. I have just ' +
+    'finished my IT degree and I am looking for a full-stack or payments role.',
 
   // Group your skills however you like. Add/remove groups and items freely.
+  // Kept short and moved below the work on purpose. A list of tool names proves
+  // nothing on its own; it is here mainly because keyword screening software reads it.
   skills: [
-    { group: 'Languages', items: ['JavaScript', 'Java', 'Python', 'SQL'] },
-    { group: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'HTML/CSS'] },
-    { group: 'Backend', items: ['Node.js', 'Express', 'FastAPI', 'Prisma'] },
-    { group: 'Databases', items: ['PostgreSQL', 'MongoDB', 'SQLite'] },
-    { group: 'Payments & Web3', items: ['Stripe', 'Square', 'Linkly / EFTPOS', 'ethers.js', 'Solidity / Hardhat'] },
-    { group: 'Mobile & Cloud', items: ['Android (Java/Kotlin)', 'Vercel', 'Cloudflare Tunnel', 'Git'] },
+    { group: 'Languages & data', items: ['JavaScript', 'Java', 'Python', 'SQL', 'PostgreSQL', 'MongoDB', 'SQLite'] },
+    { group: 'Web', items: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'Prisma', 'Tailwind CSS'] },
+    { group: 'Payments', items: ['Stripe', 'Square', 'Linkly / PC-EFTPOS card terminals'] },
+    { group: 'Other', items: ['Android (Java/Kotlin)', 'Solidity', 'Git', 'Vercel', 'Cloudflare', 'Windows server administration'] },
   ],
 
   // Work history. Most recent first. Delete the array if you have none yet and
@@ -54,7 +50,7 @@ export const profile = {
     {
       qualification: 'Bachelor of Information Technology',
       institution: 'Crown Institute of Higher Education, Australia',
-      period: 'Completed 2026',
+      period: '2023–2026',
     },
     {
       qualification: 'Bachelor of English Pedagogy',
@@ -78,17 +74,18 @@ export const featuredProject = {
     url: 'https://ichicafekippax.com',
   },
   blurb:
-    'A production point-of-sale and online-ordering system for cafés, running ' +
-    'the till at Ichi Cafe. It takes card payments over the counter and ' +
-    'online, prints real dockets, and is self-hosted on the shop’s own PC, ' +
-    'with only the customer-facing routes exposed to the internet.',
+    'The point-of-sale system Ichi Cafe runs on every trading day. It takes card ' +
+    "payments at the counter and online, prints the kitchen's dockets, and runs on " +
+    "the shop's own computer, so only the customer-facing pages are reachable from " +
+    'the internet. I am its only developer.',
   // The engineering decisions that make it portfolio-worthy. Keep these tight.
   highlights: [
-    'Three card processors behind one interface (Stripe, Square, and a direct bank-terminal integration), so checkout, split-tender and refunds behave identically whichever is active; every order records which processor charged it, so a refund always routes back to the one that took the money.',
-    'A bank EFTPOS terminal integrated at the protocol level rather than through an SDK: binary TCP/IP framing to a CommBank pinpad via Linkly, mid-sale prompts such as signature approval answered from the till, and a durable in-flight record so a crash mid-transaction is recovered on the next boot rather than lost. Built and submitted for Linkly accreditation.',
-    'Exact money handling: decimal.js everywhere, never floating-point cents. Server-side price recomputation on every online order, plus a reconciliation report that flags any order drifting from the processor by more than a cent.',
-    'A hard LAN/public trust boundary: the full POS and admin stay on the shop network, only customer routes reach the internet through a Cloudflare Tunnel.',
-    'Offline-tolerant PWA: cash sales keep working when the internet drops but the local server is up.',
+    'Every sale the cafe makes goes through software I wrote and still look after on my own. When something breaks before opening, it is mine to fix, usually remotely and before staff arrive.',
+    'The till accepts card payments through three different providers and behaves the same way whichever one is switched on. Each sale remembers who processed it, so a refund always goes back the way the money came in.',
+    "For the newest of those I connected the till straight to the bank's card reader, writing the low-level messaging myself instead of using a ready-made plugin. It is now going through the bank's certification.",
+    'Money is worked out exactly, never with the small rounding errors ordinary computer maths introduces, and a report flags any sale that disagrees with the payment provider by even one cent.',
+    'Updates test and install themselves, and undo themselves if anything fails, because a bad update at opening time means the shop cannot take money. Backups are proven by restoring them, not just by running.',
+    'Also built alongside the till: ordering online for pickup, a loyalty stamp card, table bookings including repeating weekly ones, staff clock-in, and the daily sales and tax reporting the owner uses.',
   ],
   stack: ['Next.js 16', 'JavaScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Stripe', 'Square', 'Linkly / EFTPOS'],
   demoUrl: 'https://dreamy-cafe.vercel.app',
@@ -105,10 +102,10 @@ export const otherProjects = [
   {
     name: 'AntiqChain',
     blurb:
-      'A blockchain-backed platform for authenticating antiques and fighting ' +
-      'counterfeits. A Node/Express + MongoDB backend with an Ethereum ' +
-      'smart-contract layer so provenance records are tamper-evident, plus JWT ' +
-      'auth and PDF certificate generation. University capstone project.',
+      'A marketplace for antiques where each item’s ownership history is ' +
+      'recorded on a blockchain, so it cannot be quietly rewritten later. ' +
+      'Includes logins and printable certificates. My university capstone ' +
+      'project, built with Node.js, Express, MongoDB and Solidity.',
     stack: ['Node.js', 'Express', 'MongoDB', 'Solidity / Hardhat', 'ethers.js'],
     demoUrl: '',
     repoUrl: 'https://github.com/phuanh20001/AntiqueSystem',
@@ -117,11 +114,11 @@ export const otherProjects = [
   {
     name: 'Identity',
     blurb:
-      'A biometric authentication system built to practise secure SDLC / ' +
-      'DevSecOps. A FastAPI backend implementing role-based access control, ' +
-      'TOTP two-factor auth, anti-spoofing liveness checks, and encrypted ' +
-      'biometric templates (raw images are never stored), with a native Kotlin ' +
-      'Android client.',
+      'A sign-in system using face recognition, built to practise security ' +
+      'engineering. It rejects a photo held up to the camera, asks for a ' +
+      'one-time code as a second step, and keeps biometric data encrypted so ' +
+      'the original images are never stored. Python and FastAPI, with an ' +
+      'Android app in Kotlin.',
     stack: ['Python', 'FastAPI', 'Kotlin / Android', 'Cryptography'],
     demoUrl: '',
     repoUrl: 'https://github.com/phuanh20001/Identity',
@@ -130,9 +127,8 @@ export const otherProjects = [
   {
     name: 'CryptoWallet',
     blurb:
-      'An Ethereum crypto wallet. An Express backend uses ethers.js to talk to ' +
-      'the network, sending transactions and reading balances, behind a React ' +
-      'front end.',
+      'Send and receive cryptocurrency and check balances, with a React front ' +
+      'end over a Node.js backend.',
     stack: ['Node.js', 'Express', 'ethers.js', 'React'],
     demoUrl: '',
     repoUrl: 'https://github.com/phuanh20001/CryptoWallet',
@@ -141,10 +137,9 @@ export const otherProjects = [
   {
     name: 'WEThair',
     blurb:
-      'A native Android weather app in Java. Search any city, save multiple ' +
-      'locations, and view current conditions plus a 5-day forecast with charts. ' +
-      'Uses Retrofit against the OpenWeatherMap API, with ViewModel/LiveData ' +
-      'architecture and device-location support.',
+      'Search any city, save the ones you check often, and see current ' +
+      'conditions plus a five-day forecast as charts. Written in Java for ' +
+      'Android.',
     stack: ['Java', 'Android', 'Retrofit', 'MPAndroidChart'],
     demoUrl: '',
     repoUrl: 'https://github.com/phuanh20001/WEThair',

@@ -119,7 +119,7 @@ export default function Home() {
       )}
 
       {/* ── Featured project: Muster POS ─────────────────────────────────── */}
-      <Section id="featured" title="Featured Project">
+      <Section id="featured" title="Current work">
         <article className="group rounded-2xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8 transition duration-300 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg hover:shadow-gray-200/60 dark:hover:shadow-black/40">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <h3 className="text-2xl font-bold">{featuredProject.name}</h3>

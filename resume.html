@@ -125,7 +125,7 @@
 
   <header>
     <h1>Ngoc Phu Anh Nguyen</h1>
-    <p class="tagline">Full-stack developer who builds and ships production systems, with a focus on payments &amp; integrations</p>
+    <p class="tagline">Full-stack developer. I build and look after the systems a business runs on, especially anything that touches money.</p>
     <div class="contact">
       <span>ACT, Australia</span>
       <a href="mailto:john.phuanhnguyen.dev@gmail.com">john.phuanhnguyen.dev@gmail.com</a>
@@ -140,54 +140,44 @@
   <section>
     <h2>Summary</h2>
     <p class="summary">
-      Full-stack developer who takes systems all the way to production, not just to a demo.
-      Strongest work is Muster POS, a self-hosted point-of-sale and online-ordering platform that
-      runs the till at a real café and takes card payments through Stripe, Square and a direct
-      bank EFTPOS terminal. Focused on what makes software trustworthy: exact money handling,
-      clear security boundaries, and graceful behaviour when the network drops. Seeking a
-      full-stack or payments-integration role.
+      I build software that a business actually runs on, not demos. My main work is Muster POS,
+      the system behind the counter at Ichi Cafe in Canberra: it takes card payments in the shop
+      and online, prints the kitchen's dockets, handles bookings and a loyalty card, and keeps
+      selling when the internet drops out. I wrote it, and I am the one who keeps it running.
+      Looking for a full-stack or payments role.
     </p>
   </section>
 
   <section>
-    <h2>Skills</h2>
-    <dl class="skills">
-      <dt>Languages</dt><dd>JavaScript, Java, Python, SQL</dd>
-      <dt>Frontend</dt><dd>React, Next.js, Tailwind CSS, HTML/CSS</dd>
-      <dt>Backend</dt><dd>Node.js, Express, FastAPI, Prisma</dd>
-      <dt>Databases</dt><dd>PostgreSQL, MongoDB, SQLite</dd>
-      <dt>Payments &amp; Web3</dt><dd>Stripe, Square, Linkly / PC-EFTPOS, ethers.js, Solidity / Hardhat</dd>
-      <dt>Mobile &amp; Cloud</dt><dd>Android (Java/Kotlin), Vercel, Cloudflare Tunnel, Git</dd>
-      <dt>Practices</dt><dd>AI-assisted development with repo guardrails, exact-money handling, LAN/public security boundaries, tested backups &amp; restore</dd>
-    </dl>
+    <h2>Experience</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Muster POS &middot; developer and maintainer</span>
+        <span class="entry-meta">2026 &ndash; present &middot; ichicafekippax.com &middot; github.com/phuanh20001/Muster-POS</span>
+      </div>
+      <div class="entry-sub">The point-of-sale system Ichi Cafe (Kippax, ACT) runs on every trading day. I am its only developer.</div>
+      <ul class="bullets">
+        <li>Every sale the cafe makes goes through software I wrote and still look after on my own. When something breaks before opening, it is mine to fix, usually remotely and before staff arrive.</li>
+        <li>The till accepts card payments through three different providers and behaves the same way whichever one is switched on. Each sale remembers who processed it, so a refund always goes back the way the money came in.</li>
+        <li>For the newest of those I connected the till straight to the bank's card reader, writing the low-level messaging myself instead of using a ready-made plugin. It is now going through the bank's certification.</li>
+        <li>Money is worked out exactly, never with the small rounding errors ordinary computer maths introduces, and a report flags any sale that disagrees with the payment provider by even one cent.</li>
+        <li>Updates test and install themselves, and undo themselves if anything fails, because a bad update at opening time means the shop cannot take money. Backups are proven by restoring them, not just by running.</li>
+        <li>Also built alongside the till: ordering online for pickup, a loyalty stamp card, table bookings including repeating weekly ones, staff clock-in, and the owner's daily sales and tax reporting.</li>
+      </ul>
+      <div class="stack"><b>Built with:</b> JavaScript, Next.js, PostgreSQL, Prisma, Tailwind, Stripe, Square, Linkly / PC-EFTPOS, Cloudflare Tunnel</div>
+    </div>
   </section>
 
   <section>
-    <h2>Projects</h2>
-
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">Muster POS</span>
-        <span class="entry-meta">ichicafekippax.com · github.com/phuanh20001/Muster-POS</span>
-      </div>
-      <div class="entry-sub">Point-of-sale &amp; online-ordering platform running the counter at Ichi Cafe, Kippax ACT</div>
-      <ul class="bullets">
-        <li>Three card processors behind one interface (Stripe, Square, and a direct bank terminal), so checkout, split-tender and refunds behave identically whichever is active; each order records which processor charged it, so a refund always routes back correctly.</li>
-        <li>Integrated a CommBank EFTPOS terminal at the protocol level rather than through an SDK: binary TCP/IP framing via Linkly's on-premises client, mid-sale prompts such as signature approval answered from the till, and a durable in-flight record so a crash mid-transaction is recovered on boot. Built and submitted for Linkly accreditation.</li>
-        <li>Exact money handling with decimal.js throughout, never floating-point cents; server-side price recomputation on every online order, plus a reconciliation report flagging any order that drifts from the processor by more than a cent.</li>
-        <li>Hard LAN/public trust boundary: POS and admin stay on the shop network, only customer routes reach the internet via a Cloudflare Tunnel; offline-tolerant PWA keeps cash sales working when the internet drops.</li>
-      </ul>
-      <div class="stack"><b>Stack:</b> Next.js 16, JavaScript, PostgreSQL, Prisma, Tailwind, Stripe, Square, Linkly / PC-EFTPOS</div>
-    </div>
+    <h2>Other projects</h2>
 
     <div class="entry">
       <div class="entry-head">
         <span class="entry-title">AntiqChain</span>
         <span class="entry-meta">github.com/phuanh20001/AntiqueSystem</span>
       </div>
-      <div class="entry-sub">Blockchain-backed platform for authenticating antiques (university capstone)</div>
-      <p>Node/Express + MongoDB backend with an Ethereum smart-contract layer for tamper-evident provenance records, plus JWT auth and PDF certificate generation.</p>
-      <div class="stack"><b>Stack:</b> Node.js, Express, MongoDB, Solidity / Hardhat, ethers.js</div>
+      <div class="entry-sub">University capstone project</div>
+      <p>A marketplace for antiques where each item's ownership history is recorded on a blockchain, so it cannot be quietly rewritten later. Includes logins and printable certificates. Built with Node.js, Express, MongoDB and Solidity.</p>
     </div>
 
     <div class="entry">
@@ -195,9 +185,8 @@
         <span class="entry-title">Identity</span>
         <span class="entry-meta">github.com/phuanh20001/Identity</span>
       </div>
-      <div class="entry-sub">Biometric authentication system built to practise secure SDLC / DevSecOps</div>
-      <p>FastAPI backend with role-based access control, TOTP two-factor auth, anti-spoofing liveness checks, and encrypted biometric templates (raw images never stored), with a native Kotlin Android client.</p>
-      <div class="stack"><b>Stack:</b> Python, FastAPI, Kotlin / Android, Cryptography</div>
+      <div class="entry-sub">Built to practise security engineering</div>
+      <p>A sign-in system using face recognition, with checks that reject a photo held up to the camera, one-time codes as a second step, and biometric data kept encrypted so the original images are never stored. Python and FastAPI, with an Android app in Kotlin.</p>
     </div>
 
     <div class="entry">
@@ -205,9 +194,8 @@
         <span class="entry-title">CryptoWallet</span>
         <span class="entry-meta">github.com/phuanh20001/CryptoWallet</span>
       </div>
-      <div class="entry-sub">Ethereum wallet for sending transactions and reading balances</div>
-      <p>Express backend using ethers.js to talk to the network behind a React front end.</p>
-      <div class="stack"><b>Stack:</b> Node.js, Express, ethers.js, React</div>
+      <div class="entry-sub">Ethereum wallet</div>
+      <p>Send and receive cryptocurrency and check balances, with a React front end over a Node.js backend.</p>
     </div>
 
     <div class="entry">
@@ -215,11 +203,20 @@
         <span class="entry-title">WEThair</span>
         <span class="entry-meta">github.com/phuanh20001/WEThair</span>
       </div>
-      <div class="entry-sub">Native Android weather app in Java</div>
-      <p>Search any city, save multiple locations, and view current conditions plus a 5-day forecast with charts. Retrofit against the OpenWeatherMap API, with ViewModel/LiveData architecture and device-location support.</p>
-      <div class="stack"><b>Stack:</b> Java, Android, Retrofit, MPAndroidChart</div>
+      <div class="entry-sub">Android weather app</div>
+      <p>Search any city, save the ones you check often, and see current conditions plus a five-day forecast as charts. Written in Java for Android.</p>
     </div>
 
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages &amp; data</dt><dd>JavaScript, Java, Python, SQL, PostgreSQL, MongoDB, SQLite</dd>
+      <dt>Web</dt><dd>React, Next.js, Node.js, Express, FastAPI, Prisma, Tailwind CSS</dd>
+      <dt>Payments</dt><dd>Stripe, Square, Linkly / PC-EFTPOS card terminals</dd>
+      <dt>Other</dt><dd>Android (Java/Kotlin), Solidity, Git, Vercel, Cloudflare, Windows server administration</dd>
+    </dl>
   </section>
 
   <section>
@@ -227,14 +224,14 @@
     <div class="entry">
       <div class="entry-head">
         <span class="entry-title">Bachelor of Information Technology</span>
-        <span class="entry-meta">Completed 2026</span>
+        <span class="entry-meta">2023&ndash;2026</span>
       </div>
       <div class="entry-sub">Crown Institute of Higher Education, Australia</div>
     </div>
     <div class="entry">
       <div class="entry-head">
         <span class="entry-title">Bachelor of English Pedagogy</span>
-        <span class="entry-meta">2018–2023</span>
+        <span class="entry-meta">2018&ndash;2023</span>
       </div>
       <div class="entry-sub">Saigon University, Vietnam</div>
     </div>
