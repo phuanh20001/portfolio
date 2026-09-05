@@ -11,6 +11,10 @@ export const profile = {
   tagline: 'Full-stack developer. I build and look after the systems a business runs on, especially anything that touches money.',
   location: 'ACT, Australia',
 
+  // The public URL this site is served from. Used for the canonical link and the
+  // social preview card. If you move to a custom domain, change it here only.
+  canonicalUrl: 'https://johnnguyen-portfolio.vercel.app',
+
   // Shown in the hero and footer. Delete any you don't use; the icons/links
   // only render for the ones you fill in.
   links: {
