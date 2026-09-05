@@ -5,7 +5,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const profile = {
-  name: 'Ngoc Phu Anh Nguyen',
+  name: 'Ngoc Phu Anh (John) Nguyen',
   // The one line under your name. Aim for a role + specialty, e.g.
   // "Full-stack developer — I build production web apps end to end".
   tagline: 'Full-stack developer. I build and look after the systems a business runs on, especially anything that touches money.',
