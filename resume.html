@@ -24,7 +24,7 @@
     color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 9.4pt;
-    line-height: 1.22;
+    line-height: 1.19;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -160,10 +160,10 @@
         <li>I have worked the counter here since 2023. In 2026 I built the cafe's till, because from the floor I could see what slowed service down and what went wrong under pressure. Every sale the cafe makes now runs through software I wrote and still look after on my own.</li>
         <li>When something breaks before opening, it is mine to fix, usually remotely and before staff arrive.</li>
         <li>The till accepts card payments through three different providers and behaves the same way whichever one is switched on. Each sale remembers who processed it, so a refund always goes back the way the money came in.</li>
-        <li>For the newest of those I connected the till straight to the bank's card reader, writing the low-level messaging myself instead of using a ready-made plugin. It is now going through the bank's certification.</li>
+        <li>For the newest I connected the till straight to the bank's card reader, writing the low-level messaging myself rather than using a ready-made plugin. It is now in the bank's certification.</li>
         <li>Money is worked out exactly, never with the small rounding errors ordinary computer maths introduces, and a report flags any sale that disagrees with the payment provider by even one cent.</li>
-        <li>Updates test and install themselves, and undo themselves if anything fails, because a bad update at opening time means the shop cannot take money. Backups are proven by restoring them, not just by running.</li>
-        <li>Also built alongside the till: ordering online for pickup, a loyalty stamp card, table bookings including repeating weekly ones, staff clock-in, and the owner's daily sales and tax reporting.</li>
+        <li>Updates test and install themselves, and roll back if anything fails, because a bad update at opening means the shop cannot take money. Backups are proven by restoring them.</li>
+        <li>Also built alongside the till: ordering online for pickup, a loyalty stamp card, table bookings including repeating weekly ones, staff clock-in, stock tracking, and the owner's daily sales and tax reporting. Several came from a second job at Kingsley&rsquo;s Chicken, on the counter, the kitchen and some manager shifts. The front/kitchen split copied their tablet setup, then became printed dockets because a cafe is not a chain.</li>
       </ul>
       <div class="stack"><b>Built with:</b> JavaScript, Next.js, PostgreSQL, Prisma, Tailwind, Stripe, Square, Linkly / PC-EFTPOS, Cloudflare Tunnel</div>
     </div>
