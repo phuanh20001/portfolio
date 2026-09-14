@@ -84,14 +84,31 @@ export const featuredProject = {
     "dockets, and runs on the shop's own computer, so only the customer-facing " +
     'pages are reachable from the internet. I am its only developer.',
   // The engineering decisions that make it portfolio-worthy. Keep these tight.
+  // Two groups on purpose: "Running it" is the half most portfolios cannot show.
+  // Every claim there is backed by a real test on the shop machine. Never name
+  // addresses, remote-access tools or schedules: the cafe is named on this page.
   highlights: [
-    "I have worked the counter at Ichi Cafe since 2023. In 2026 I built the cafe's till, because from the floor I could see what slowed service down and what went wrong under pressure. Every sale the cafe makes now runs through software I wrote and still look after on my own.",
-    'When something breaks before opening, it is mine to fix, usually remotely and before staff arrive.',
-    'The till accepts card payments through three different providers and behaves the same way whichever one is switched on. Each sale remembers who processed it, so a refund always goes back the way the money came in.',
-    "For the newest of those I connected the till straight to the bank's card reader, writing the low-level messaging myself instead of using a ready-made plugin. It is now going through the bank's certification.",
-    'Money is worked out exactly, never with the small rounding errors ordinary computer maths introduces, and a report flags any sale that disagrees with the payment provider by even one cent.',
-    'Updates test and install themselves, and undo themselves if anything fails, because a bad update at opening time means the shop cannot take money. Backups are proven by restoring them, not just by running.',
-    'Also built alongside the till: ordering online for pickup, a loyalty stamp card, table bookings including repeating weekly ones, staff clock-in, and the daily sales and tax reporting the owner uses.',
+    {
+      group: 'Building it',
+      items: [
+        "I have worked the counter at Ichi Cafe since 2023. In 2026 I built the cafe's till, because from the floor I could see what slowed service down and what went wrong under pressure. Every sale the cafe makes now runs through software I wrote and still look after on my own.",
+        'The till accepts card payments through three different providers and behaves the same way whichever one is switched on. Each sale remembers who processed it, so a refund always goes back the way the money came in.',
+        "For the newest of those I connected the till straight to the bank's card reader, writing the low-level messaging myself instead of using a ready-made plugin. It passed Linkly's accreditation in September 2026 and is listed in their public directory.",
+        'Money is worked out exactly, never with the small rounding errors ordinary computer maths introduces, and a report flags any sale that disagrees with the payment provider by even one cent.',
+        'Also built alongside the till: ordering online for pickup, a loyalty stamp card, table bookings including repeating weekly ones, staff clock-in, and the daily sales and tax reporting the owner uses.',
+      ],
+    },
+    {
+      group: 'Running it',
+      items: [
+        'The till runs on a small computer in the back of the shop with no screen. I look after it remotely, outside trading hours, and when something breaks before opening it is mine to fix before staff arrive. Before any change that could cut off that remote access, I arm a timer that puts it back unless I cancel it.',
+        "In September the front printer started dropping out mid-service. I read the printer's own network counters and found my code was opening eight connections for every docket, more than its small buffer could keep up with. A docket now uses one connection, a printer that stops answering is left alone for 20 seconds instead of being retried into, and a daily job records those counters so a struggling printer can show up in the numbers before staff notice.",
+        'It switches itself back on after a power cut, which I tested by pulling the plug at the wall. After every restart a check confirms the till is actually serving and emails me what broke if it is not. If the machine never comes back at all, the missing check-in raises the alert instead.',
+        'Updates install themselves after close. The tests run before the till is stopped, and an update that leaves the till unhealthy is rolled back automatically. I proved both with deliberately broken updates on the live machine, and the rollback test caught a bug that would have reported a failed rollback as a success.',
+        'Backups run every night, are kept on the machine and off site, and each one is read back before it counts. Four times a year the newest is rebuilt into a scratch copy of the shop, because a backup is only proven by restoring it.',
+        'Windows security patches install overnight, but major Windows upgrades are held back until I do them by hand, so the operating system cannot change under the shop mid-service.',
+      ],
+    },
   ],
   stack: ['Next.js 16', 'JavaScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'Stripe', 'Square', 'Linkly / EFTPOS'],
   demoUrl: 'https://dreamy-cafe.vercel.app',

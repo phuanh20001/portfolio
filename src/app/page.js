@@ -161,14 +161,21 @@ export default function Home() {
             {featuredProject.blurb}
           </p>
 
-          <ul className="mt-5 space-y-2">
-            {featuredProject.highlights.map((h, i) => (
-              <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
-                <span className="leading-relaxed">{h}</span>
-              </li>
-            ))}
-          </ul>
+          {featuredProject.highlights.map((g) => (
+            <div key={g.group} className="mt-6">
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                {g.group}
+              </h4>
+              <ul className="mt-3 space-y-2">
+                {g.items.map((h, i) => (
+                  <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
+                    <span className="leading-relaxed">{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           <div className="mt-6 flex flex-wrap gap-2">
             {featuredProject.stack.map((s) => (
