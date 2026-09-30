@@ -87,13 +87,13 @@
       </div>
       <p class="links"><a href="https://musterpos.com">musterpos.com</a> | <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a> | Live demo: <a href="https://dreamy-cafe.vercel.app/login">dreamy-cafe.vercel.app</a> (staff PIN 1111)</p>
       <ul>
-        <li>Developed Muster POS in 2026 after seeing from the counter what slowed service down; deployed it on the cafe&rsquo;s own computer and maintain it alone; it handles every sale, about 1,600 orders a week</li>
+        <li>Developed Muster POS (Next.js, PostgreSQL, Prisma) in 2026 to speed up counter service; deployed it on the cafe&rsquo;s own computer and maintain it alone; it handles every sale, about 1,600 orders a week</li>
         <li>Integrated Stripe, Square and bank EFTPOS behind one payment interface with identical till behaviour; each sale records its processor so refunds return through the original provider</li>
-        <li>Wrote the low-level messaging for a direct link to the bank&rsquo;s card terminal instead of a ready-made plugin; passed Linkly accreditation in September 2026, listed in <a href="https://linkly.com.au/resources-support/accredited-pos-vendors/">Linkly&rsquo;s public directory</a></li>
+        <li>Wrote the low-level messaging for a direct link to the bank&rsquo;s card terminal instead of a ready-made plugin, letting the cafe move in-store payments from Square to its bank&rsquo;s lower card rate; passed Linkly accreditation in September 2026, listed in <a href="https://linkly.com.au/resources-support/accredited-pos-vendors/">Linkly&rsquo;s public directory</a></li>
         <li>Implemented exact decimal arithmetic for all money calculations to avoid floating-point rounding errors; built a report that flags any sale differing from the payment provider by one cent</li>
-        <li>Automated releases with 500+ checks before every update and automatic rollback on failure; proved backups by restoring them, and fix pre-opening faults, usually remotely, before staff arrive</li>
-        <li>Kept staff screens on the shop network and set online prices server-side so customers cannot alter them</li>
-        <li>Built online pickup ordering, offline mode for internet outages, kitchen docket printing, a loyalty stamp card, one-off and weekly table bookings, staff clock-in, stock tracking, and daily sales and tax reports</li>
+        <li>Automated releases with 500+ checks and automatic rollback, proved with deliberately broken updates on the live till; verified nightly backups with quarterly full restores</li>
+        <li>Traced the front printer dropping out mid-service to 8 connections per docket using its own network counters; cut it to 1 and added a 20-second back-off and daily health tracking</li>
+        <li>Built online ordering, offline mode, a loyalty card, table bookings, staff clock-in and tax reporting</li>
       </ul>
     </div>
 
@@ -144,7 +144,7 @@
         <span class="when"><a href="https://github.com/phuanh20001/Identity">github.com/phuanh20001/Identity</a></span>
       </div>
       <ul>
-        <li>Designed face-recognition sign-in that rejects photos held up to the camera, requires a one-time code, and encrypts biometric data without storing original images (Python, FastAPI, Android/Kotlin)</li>
+        <li>Designed face-recognition sign-in that rejects photos held up to the camera, requires a one-time code, and encrypts biometric data without storing original images (Python, FastAPI, SQLite, Android/Kotlin)</li>
       </ul>
     </div>
 
