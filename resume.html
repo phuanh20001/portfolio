@@ -5,15 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ngoc Phu Anh (John) Nguyen Résumé</title>
 <style>
-  /* ── Print setup: A4, tight margins so it fits one page ─────────────── */
-  @page { size: A4; margin: 8mm 12mm; }
-
-  :root {
-    --ink: #111111;
-    --muted: #555555;
-    --line: #d8d8d8;
-    --accent: #000000;
-  }
+  /* Harvard Mignone Center rules: one column, one body size between 10 and 12pt,
+     equal margins of at least 0.75in, no colour or shading. */
+  @page { size: A4; margin: 0.75in; }
 
   * { box-sizing: border-box; }
 
@@ -21,123 +15,52 @@
     margin: 0;
     padding: 0;
     background: #ffffff;
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 9.4pt;
-    line-height: 1.19;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    color: #000000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    line-height: 1.17;
   }
 
-  /* On screen, frame it like a sheet of paper so the preview looks right */
   @media screen {
     body { background: #ececec; padding: 24px; }
     .sheet {
       max-width: 210mm;
       margin: 0 auto;
       background: #fff;
-      padding: 16mm 17mm;
+      padding: 0.75in;
       box-shadow: 0 2px 18px rgba(0,0,0,0.15);
     }
   }
   @media print {
     .sheet { padding: 0; }
-    a { color: var(--ink); text-decoration: none; }
   }
 
-  a { color: var(--ink); }
+  a { color: inherit; text-decoration: none; }
 
-  /* ── Header ────────────────────────────────────────────────────────── */
-  header { margin-bottom: 6px; }
-  h1 {
-    font-size: 19pt;
-    line-height: 1.05;
-    margin: 0 0 2px;
-    letter-spacing: -0.01em;
-  }
-  .tagline {
-    font-size: 10.5pt;
-    color: var(--muted);
-    margin: 0 0 6px;
-  }
-  .contact {
-    font-size: 9.5pt;
-    color: var(--muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 14px;
-  }
-  .contact a { color: var(--ink); text-decoration: none; }
+  header { text-align: center; margin-bottom: 4pt; }
+  h1 { font-size: 16pt; margin: 0 0 2pt; }
+  .contact { margin: 0; }
 
-  hr {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 6px 0 8px;
-  }
-
-  /* ── Two columns ───────────────────────────────────────────────────── */
-  /* The main column comes FIRST in the markup on purpose: applicant-tracking
-     software reads the text in document order, so it gets the experience
-     before the sidebar instead of the two interleaved line by line. */
-  .cols {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 57mm;
-    column-gap: 6mm;
-    align-items: start;
-  }
-  .side {
-    border-left: 1px solid var(--line);
-    padding-left: 5mm;
-    font-size: 9.1pt;
-  }
-
-  /* ── Section headings ──────────────────────────────────────────────── */
-  section { margin-bottom: 7px; }
-  section:last-child { margin-bottom: 0; }
+  section { margin-top: 8pt; }
   h2 {
-    font-size: 9.5pt;
+    font-size: 11pt;
     text-transform: uppercase;
-    letter-spacing: 0.13em;
-    color: var(--accent);
-    margin: 0 0 5px;
-    padding-bottom: 2px;
-    border-bottom: 1.5px solid var(--ink);
+    margin: 0 0 3pt;
+    border-bottom: 1px solid #000;
   }
 
-  p { margin: 0 0 5px; }
-  .summary { color: #2a2a2a; }
+  p { margin: 0; }
 
-  /* ── Entry blocks ──────────────────────────────────────────────────── */
-  .entry { margin-bottom: 6px; page-break-inside: avoid; }
+  .entry { margin-bottom: 5pt; break-inside: avoid; }
   .entry:last-child { margin-bottom: 0; }
-  .entry-head {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    column-gap: 10px;
-  }
-  .entry-title { font-weight: 700; font-size: 10.5pt; }
-  .entry-title .role { font-weight: 400; color: var(--muted); font-size: 9.6pt; }
-  .entry-meta { font-size: 9pt; color: var(--muted); white-space: nowrap; }
-  .entry-sub { font-size: 9.3pt; color: var(--muted); margin: 1px 0 3px; }
-  .entry-sub a { color: inherit; text-decoration: none; }
-  .entry p { margin: 2px 0 0; }
-  ul.bullets { margin: 2px 0 0; padding-left: 15px; }
-  ul.bullets li { margin: 0 0 2px; }
+  .head { display: flex; justify-content: space-between; column-gap: 12pt; }
+  .head .when { white-space: nowrap; }
+  .links { margin: 0; }
 
-  /* ── Sidebar blocks ────────────────────────────────────────────────── */
-  ul.facts { margin: 0; padding-left: 12px; }
-  ul.facts li { margin: 0 0 4px; }
-  ul.facts b { font-weight: 700; }
-  .skills { margin: 0; }
-  .skills dt { font-weight: 700; margin-top: 4px; }
-  .skills dt:first-child { margin-top: 0; }
-  .skills dd { margin: 0; color: #333; }
-  .side .entry-title { font-size: 9.6pt; }
-  .side .entry-sub { font-size: 9pt; margin: 1px 0 0; }
-  .side a { text-decoration: none; }
-  .nw { white-space: nowrap; }
+  ul { margin: 1pt 0 0; padding-left: 16pt; }
+  li { margin: 0 0 1pt; }
+
+  .skills p { margin: 0 0 1pt; }
 </style>
 </head>
 <body>
@@ -145,151 +68,115 @@
 
   <header>
     <h1>Ngoc Phu Anh (John) Nguyen</h1>
-    <p class="tagline">Full-stack developer. I build and look after the systems a business runs on, especially anything that touches money.</p>
-    <div class="contact">
-      <span>ACT, Australia</span>
-      <a href="mailto:john.phuanhnguyen.dev@gmail.com">john.phuanhnguyen.dev@gmail.com</a>
-      <a href="https://github.com/phuanh20001">github.com/phuanh20001</a>
-      <a href="https://www.linkedin.com/in/john-phuanhnguyen-dev">linkedin.com/in/john-phuanhnguyen-dev</a>
-      <a href="https://johnnguyen-portfolio.vercel.app">johnnguyen-portfolio.vercel.app</a>
-    </div>
+    <p class="contact">ACT, Australia | <a href="tel:+61412404185">0412 404 185</a> | <a href="mailto:john.phuanhnguyen.dev@gmail.com">john.phuanhnguyen.dev@gmail.com</a></p>
+    <p class="contact"><a href="https://www.linkedin.com/in/john-phuanhnguyen-dev">linkedin.com/in/john-phuanhnguyen-dev</a> | <a href="https://github.com/phuanh20001">github.com/phuanh20001</a> | <a href="https://johnnguyen-portfolio.vercel.app">johnnguyen-portfolio.vercel.app</a></p>
   </header>
 
-  <hr />
+  <section>
+    <h2>Summary</h2>
+    <p>Full-stack developer focused on payments and integrations. Sole developer of Muster POS, the point-of-sale system a Canberra cafe trades on every day, including a Linkly-accredited card terminal integration.</p>
+  </section>
 
-  <div class="cols">
+  <section>
+    <h2>Experience</h2>
 
-    <main>
-      <section>
-        <h2>Summary</h2>
-        <p class="summary">
-          I work at a Canberra cafe, and I also built the system it trades on. Muster POS takes card
-          payments at the counter and online, prints the kitchen's dockets, handles bookings and a
-          loyalty card, and keeps selling when the internet drops out. Its card reader integration is
-          Linkly accredited. I wrote it, deployed it on the shop's own computer, and I am the one who
-          keeps it running. Working the floor is why it is any good: I built the till I have to use.
-          Looking for a full-stack or payments role.
-        </p>
-      </section>
+    <div class="entry">
+      <div class="head">
+        <span><b>Ichi Cafe</b>, <i>Waiter and Sole Developer of Muster POS</i>, Kippax, ACT</span>
+        <span class="when">2023&ndash;Present</span>
+      </div>
+      <p class="links"><a href="https://musterpos.com">musterpos.com</a> | <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a> | Live demo: <a href="https://dreamy-cafe.vercel.app/login">dreamy-cafe.vercel.app</a> (staff PIN 1111)</p>
+      <ul>
+        <li>Developed Muster POS in 2026 after seeing from the counter what slowed service down; deployed it on the cafe&rsquo;s own computer and maintain it alone; it handles every sale, about 1,600 orders a week</li>
+        <li>Integrated Stripe, Square and bank EFTPOS behind one payment interface with identical till behaviour; each sale records its processor so refunds return through the original provider</li>
+        <li>Wrote the low-level messaging for a direct link to the bank&rsquo;s card terminal instead of a ready-made plugin; passed Linkly accreditation in September 2026, listed in <a href="https://linkly.com.au/resources-support/accredited-pos-vendors/">Linkly&rsquo;s public directory</a></li>
+        <li>Implemented exact decimal arithmetic for all money calculations to avoid floating-point rounding errors; built a report that flags any sale differing from the payment provider by one cent</li>
+        <li>Automated releases with 500+ checks before every update and automatic rollback on failure; proved backups by restoring them, and fix pre-opening faults, usually remotely, before staff arrive</li>
+        <li>Kept staff screens on the shop network and set online prices server-side so customers cannot alter them</li>
+        <li>Built online pickup ordering, offline mode for internet outages, kitchen docket printing, a loyalty stamp card, one-off and weekly table bookings, staff clock-in, stock tracking, and daily sales and tax reports</li>
+      </ul>
+    </div>
 
-      <section>
-        <h2>Experience</h2>
+    <div class="entry">
+      <div class="head">
+        <span><b>Kingsley&rsquo;s Chicken</b>, <i>Customer and Food Service</i>, Canberra, ACT</span>
+        <span class="when">2023&ndash;Present</span>
+      </div>
+      <ul>
+        <li>Cover counter, kitchen and some manager shifts in a high-volume fast-food restaurant; count stock, call kitchen production and keep system stock levels current</li>
+        <li>Drew on the restaurant&rsquo;s tablet ordering to design Muster POS&rsquo;s staff clock-in, stock tracking and front/kitchen split, adapted to printed dockets for the cafe</li>
+      </ul>
+    </div>
+  </section>
 
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Ichi Cafe <span class="role">&middot; waiter, and the cafe's developer</span></span>
-            <span class="entry-meta">2023 &ndash; present &middot; Kippax, ACT</span>
-          </div>
-          <div class="entry-sub">Muster POS, the point-of-sale system the cafe trades on every day. I am its only developer. <a href="https://musterpos.com">musterpos.com</a> &middot; <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a></div>
-          <ul class="bullets">
-            <li>I have worked the counter here since 2023. In 2026 I built the cafe's till, because from the floor I could see what slowed service down. Every sale the cafe makes now runs through software I wrote and still look after on my own.</li>
-            <li>The till accepts card payments through three different providers and behaves the same way whichever one is switched on. Each sale remembers who processed it, so a refund always goes back the way the money came in.</li>
-            <li>For the newest I connected the till straight to the bank's card reader, writing the low-level messaging myself rather than using a ready-made plugin. It passed Linkly's accreditation in September 2026 and is listed in their public directory.</li>
-            <li>Money is worked out exactly, never with the small rounding errors ordinary computer maths introduces, and a report flags any sale that disagrees with the payment provider by even one cent.</li>
-            <li>Updates test and install themselves, and roll back if anything fails, because a bad update at opening means the shop cannot take money. Backups are proven by restoring them. When something breaks before opening, it is mine to fix, usually remotely and before staff arrive.</li>
-            <li>Staff screens stay on the shop's own network, and online prices are set by the server so a customer cannot change them.</li>
-            <li>Also built alongside the till: ordering online for pickup, a loyalty stamp card, table bookings including repeating weekly ones, staff clock-in, stock tracking, and the owner's daily sales and tax reporting.</li>
-          </ul>
-        </div>
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="head">
+        <span><b>Crown Institute of Higher Education</b>, <i>Bachelor of Information Technology</i>, Australia</span>
+        <span class="when">2023&ndash;2026</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="head">
+        <span><b>Saigon University</b>, <i>Bachelor of English Pedagogy</i>, Vietnam</span>
+        <span class="when">2018&ndash;2023</span>
+      </div>
+    </div>
+  </section>
 
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Kingsley&rsquo;s Chicken <span class="role">&middot; customer and food service</span></span>
-            <span class="entry-meta">2023 &ndash; present &middot; Canberra</span>
-          </div>
-          <ul class="bullets">
-            <li>Counter, kitchen and some manager shifts in a high-volume fast-food restaurant: counting stock, calling what to cook next, and keeping the stock numbers on the system current.</li>
-            <li>Orders there run on tablets, not paper. Working all three positions is where Muster POS's clock-in, stock tracking and front/kitchen split came from. For the cafe the split became printed dockets, because a cafe is not a chain.</li>
-          </ul>
-        </div>
-      </section>
+  <section>
+    <h2>Projects</h2>
 
-      <section>
-        <h2>Other projects</h2>
+    <div class="entry">
+      <div class="head">
+        <span><b>AntiqChain</b>, <i>University capstone</i></span>
+        <span class="when"><a href="https://github.com/phuanh20001/AntiqueSystem">github.com/phuanh20001/AntiqueSystem</a></span>
+      </div>
+      <ul>
+        <li>Developed an antiques marketplace that records each item&rsquo;s ownership history on a blockchain so it cannot be quietly rewritten, with logins and printable certificates (Node.js, Express, MongoDB, Solidity)</li>
+      </ul>
+    </div>
 
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">AntiqChain <span class="role">&middot; university capstone</span></span>
-            <span class="entry-meta">github.com/phuanh20001/AntiqueSystem</span>
-          </div>
-          <p>A marketplace for antiques where each item's ownership history is recorded on a blockchain, so it cannot be quietly rewritten later. Includes logins and printable certificates. Node.js, Express, MongoDB and Solidity.</p>
-        </div>
+    <div class="entry">
+      <div class="head">
+        <span><b>Identity</b>, <i>Security engineering practice</i></span>
+        <span class="when"><a href="https://github.com/phuanh20001/Identity">github.com/phuanh20001/Identity</a></span>
+      </div>
+      <ul>
+        <li>Designed face-recognition sign-in that rejects photos held up to the camera, requires a one-time code, and encrypts biometric data without storing original images (Python, FastAPI, Android/Kotlin)</li>
+      </ul>
+    </div>
 
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">Identity <span class="role">&middot; security engineering practice</span></span>
-            <span class="entry-meta">github.com/phuanh20001/Identity</span>
-          </div>
-          <p>A sign-in system using face recognition, with checks that reject a photo held up to the camera, one-time codes as a second step, and biometric data kept encrypted so the original images are never stored. Python and FastAPI, with an Android app in Kotlin.</p>
-        </div>
+    <div class="entry">
+      <div class="head">
+        <span><b>CryptoWallet</b>, <i>Ethereum wallet</i></span>
+        <span class="when"><a href="https://github.com/phuanh20001/CryptoWallet">github.com/phuanh20001/CryptoWallet</a></span>
+      </div>
+      <ul>
+        <li>Built a wallet to send and receive cryptocurrency and check balances (React, Node.js)</li>
+      </ul>
+    </div>
 
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">CryptoWallet <span class="role">&middot; Ethereum wallet</span></span>
-            <span class="entry-meta">github.com/phuanh20001/CryptoWallet</span>
-          </div>
-          <p>Send and receive cryptocurrency and check balances, with a React front end over a Node.js backend.</p>
-        </div>
+    <div class="entry">
+      <div class="head">
+        <span><b>WEThair</b>, <i>Android weather app</i></span>
+        <span class="when"><a href="https://github.com/phuanh20001/WEThair">github.com/phuanh20001/WEThair</a></span>
+      </div>
+      <ul>
+        <li>Programmed city search with saved favourites, current conditions and five-day forecast charts (Java)</li>
+      </ul>
+    </div>
+  </section>
 
-        <div class="entry">
-          <div class="entry-head">
-            <span class="entry-title">WEThair <span class="role">&middot; Android weather app</span></span>
-            <span class="entry-meta">github.com/phuanh20001/WEThair</span>
-          </div>
-          <p>Search any city, save the ones you check often, and see current conditions plus a five-day forecast as charts. Written in Java.</p>
-        </div>
-      </section>
-    </main>
-
-    <aside class="side">
-      <section>
-        <h2>Highlights</h2>
-        <ul class="facts">
-          <li><b>Linkly accredited</b> card reader integration, September 2026, listed in Linkly's public directory</li>
-          <li><b>In daily use</b> at a trading cafe since 2026</li>
-          <li><b>Three card providers</b> behind one interface: Stripe, Square and bank EFTPOS</li>
-          <li><b>500+ automated checks</b> run before every update reaches the shop</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>See it working</h2>
-        <ul class="facts">
-          <li><b>Try the till</b> (staff PIN 1111): <a class="nw" href="https://dreamy-cafe.vercel.app/login">dreamy-cafe.vercel.app</a></li>
-          <li><b>Product site:</b> <a href="https://musterpos.com">musterpos.com</a></li>
-          <li><b>Accreditation:</b> <a href="https://linkly.com.au/resources-support/accredited-pos-vendors/">Linkly's accredited POS directory</a>, search &ldquo;Muster&rdquo;</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Skills</h2>
-        <dl class="skills">
-          <dt>Languages &amp; data</dt><dd>JavaScript, Java, Python, SQL, PostgreSQL, MongoDB, SQLite</dd>
-          <dt>Web</dt><dd>React, Next.js, Node.js, Express, FastAPI, Prisma, Tailwind CSS</dd>
-          <dt>Payments</dt><dd>Stripe, Square, Linkly / PC-EFTPOS card terminals</dd>
-          <dt>Other</dt><dd>Android (Java/Kotlin), Solidity, Git, Vercel, Cloudflare, Windows server administration</dd>
-        </dl>
-      </section>
-
-      <section>
-        <h2>Education</h2>
-        <div class="entry">
-          <div class="entry-title">Bachelor of Information Technology</div>
-          <div class="entry-sub">Crown Institute of Higher Education, Australia<br />2023&ndash;2026</div>
-        </div>
-        <div class="entry">
-          <div class="entry-title">Bachelor of English Pedagogy</div>
-          <div class="entry-sub">Saigon University, Vietnam<br />2018&ndash;2023</div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Languages</h2>
-        <p>Vietnamese: native<br />English: fluent</p>
-      </section>
-    </aside>
-
-  </div>
+  <section class="skills">
+    <h2>Skills</h2>
+    <p><b>Programming &amp; data:</b> JavaScript, Java, Python, SQL, PostgreSQL, MongoDB, SQLite</p>
+    <p><b>Web:</b> React, Next.js, Node.js, Express, FastAPI, Prisma, Tailwind CSS</p>
+    <p><b>Payments:</b> Stripe, Square, Linkly / PC-EFTPOS card terminals</p>
+    <p><b>Other:</b> Android (Java/Kotlin), Solidity, Git, Vercel, Cloudflare, Windows server administration</p>
+    <p><b>Languages:</b> Vietnamese (native), English (fluent)</p>
+  </section>
 
 </div>
 </body>
