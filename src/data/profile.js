@@ -77,7 +77,6 @@ export const featuredProject = {
   deployment: {
     customer: 'Ichi Cafe, Kippax ACT',
     url: 'https://ichicafekippax.com',
-    volume: 'about 1,600 orders a week',
   },
   blurb:
     'The point-of-sale system Ichi Cafe trades on every day. It takes card payments ' +

@@ -154,7 +154,6 @@ export default function Home() {
                   {featuredProject.deployment.customer}
                 </span>
               )}
-              {real(featuredProject.deployment.volume) && ` · ${featuredProject.deployment.volume}`}
             </p>
           )}
 

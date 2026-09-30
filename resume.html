@@ -87,7 +87,7 @@
       </div>
       <p class="links"><a href="https://musterpos.com">musterpos.com</a> | <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a> | Live demo: <a href="https://dreamy-cafe.vercel.app/login">dreamy-cafe.vercel.app</a> (staff PIN 1111)</p>
       <ul>
-        <li>Developed Muster POS (Next.js, PostgreSQL, Prisma) in 2026 to speed up counter service; deployed it on the cafe&rsquo;s own computer and maintain it alone; it handles every sale, about 1,600 orders a week</li>
+        <li>Developed Muster POS (Next.js, PostgreSQL, Prisma) in 2026 to speed up counter service; deployed it on the cafe&rsquo;s own computer and maintain it alone; every sale the cafe makes runs through it</li>
         <li>Integrated Stripe, Square and bank EFTPOS behind one payment interface with identical till behaviour; each sale records its processor so refunds return through the original provider</li>
         <li>Wrote the low-level messaging for a direct link to the bank&rsquo;s card terminal instead of a ready-made plugin, letting the cafe move in-store payments from Square to its bank&rsquo;s lower card rate; passed Linkly accreditation in September 2026, listed in <a href="https://linkly.com.au/resources-support/accredited-pos-vendors/">Linkly&rsquo;s public directory</a></li>
         <li>Implemented exact decimal arithmetic for all money calculations to avoid floating-point rounding errors; built a report that flags any sale differing from the payment provider by one cent</li>
