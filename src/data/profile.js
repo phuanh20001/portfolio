@@ -29,7 +29,7 @@ export const profile = {
 
   // 2–4 sentences. Who you are, what you're good at, what you're looking for.
   about:
-    'Waiter at a Canberra cafe and sole developer of Muster POS, the point-of-sale ' +
+    'Part-time software engineer at a Canberra cafe and sole developer of Muster POS, the point-of-sale ' +
     'system it trades on. Designed it to take card payments at the counter and ' +
     "online, print the kitchen's dockets, run bookings and a loyalty card, and keep " +
     "selling when the internet drops out. Deployed it on the shop's own computer, " +
@@ -40,21 +40,51 @@ export const profile = {
   // Kept short and moved below the work on purpose. A list of tool names proves
   // nothing on its own; it is here mainly because keyword screening software reads it.
   skills: [
-    { group: 'Languages & data', items: ['JavaScript', 'Java', 'Python', 'SQL', 'PostgreSQL', 'MongoDB', 'SQLite'] },
-    { group: 'Web', items: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'Prisma', 'Tailwind CSS'] },
+    { group: 'Languages & data', items: ['JavaScript', 'Java', 'Kotlin', 'Python', 'SQL', 'Solidity', 'PostgreSQL', 'MongoDB', 'SQLite'] },
+    { group: 'Web & mobile', items: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'Prisma', 'Tailwind CSS', 'Android'] },
     { group: 'Payments', items: ['Stripe', 'Square', 'Linkly / PC-EFTPOS card terminals'] },
-    { group: 'Other', items: ['Android (Java/Kotlin)', 'Solidity', 'Git', 'Vercel', 'Cloudflare', 'Windows server administration'] },
+    { group: 'Testing & DevOps', items: ['Node.js test runner', 'ESLint', 'GitHub Actions', 'Git', 'PowerShell', 'Cloudflare', 'Vercel'] },
+    { group: 'Practices', items: ['AI-assisted development with guardrails', 'CI/CD', 'Windows server administration'] },
   ],
 
   // Work history. Most recent first. Delete the array if you have none yet and
   // the section will hide itself.
-  experience: [],
+  experience: [
+    {
+      role: 'Software Engineer (Part-time)',
+      company: 'Ichi Cafe',
+      location: 'Kippax, ACT',
+      period: '2026–Present',
+      points: ["Maintain Muster POS, the cafe's till, and build its website and online ordering."],
+    },
+    {
+      role: 'Web Development Intern',
+      company: 'Onyamarks',
+      period: 'Nov 2025–Feb 2026',
+      points: [
+        'Designed front-end layouts in Canva and made small code changes for a web design and SEO agency; supported its SEO work, including Google Business Profile updates.',
+      ],
+    },
+    {
+      role: 'Waiter',
+      company: 'Ichi Cafe',
+      location: 'Kippax, ACT',
+      period: '2023–Present',
+    },
+    {
+      role: 'Customer and Food Service',
+      company: 'Kingsley’s Chicken',
+      location: 'Canberra, ACT',
+      period: '2023–Present',
+      points: ['Cover counter, kitchen and some manager shifts in a high-volume fast-food restaurant.'],
+    },
+  ],
 
   // Education. Delete entries you don't need.
   education: [
     {
       qualification: 'Bachelor of Information Technology',
-      institution: 'Crown Institute of Higher Education, Australia',
+      institution: 'Crown Institute of Higher Education, Canberra, ACT',
       period: '2023–2026',
     },
     {
@@ -90,7 +120,7 @@ export const featuredProject = {
     {
       group: 'Building it',
       items: [
-        "Built the cafe's till in 2026, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Maintain it single-handedly; every sale the cafe makes now runs through it.",
+        "Built the cafe's till in 2026 as a self-funded project, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
         "Integrated three card payment providers (Stripe, Square and the bank's EFTPOS terminal) behind one interface, so the till behaves the same whichever is switched on. Recorded the processor on every sale, so a refund always goes back the way the money came in.",
         "Connected the till straight to the bank's card reader, writing the low-level messaging instead of using a ready-made plugin. Passed Linkly's accreditation in September 2026 (listed in their public directory), letting the cafe move its in-store card payments from Square to its bank's lower card rate that month.",
         'Implemented exact decimal arithmetic for every money calculation, avoiding the small rounding errors ordinary computer maths introduces. Built a report that flags any sale disagreeing with the payment provider by even one cent.',
@@ -104,7 +134,7 @@ export const featuredProject = {
         'Administer the till remotely on a screenless computer in the back of the shop, outside trading hours, and fix anything that breaks before opening, ahead of staff arriving. Guard every change that could cut off that remote access with a timer that reverts it unless cancelled.',
         "Diagnosed the front printer dropping out mid-service in September: its own network counters showed the till's code opening eight connections for every docket, more than the printer's small buffer could keep up with. Cut that to one connection per docket, left a printer that stops answering alone for 20 seconds instead of retrying into it, and added a daily job that records those counters so a struggling printer shows up in the numbers before staff notice.",
         'Set the machine to switch itself back on after a power cut, tested by pulling the plug at the wall. Added a check after every restart that confirms the till is actually serving and emails what broke if it is not, plus an alert when the machine never checks in at all.',
-        'Automated updates after close: 500+ tests run before the till is stopped, and an update that leaves it unhealthy rolls back automatically. Proved both with deliberately broken updates on the live machine; the rollback test caught a bug that would have reported a failed rollback as a success.',
+        'Automated updates after close: 700+ tests (Node.js test runner) and ESLint run in GitHub Actions on every push and again before the till is stopped, and an update that leaves it unhealthy rolls back automatically. Proved both with deliberately broken updates on the live machine outside trading hours; the rollback test caught a bug that would have reported a failed rollback as a success.',
         'Set up nightly backups, kept on the machine and off site, each read back before it counts. Rebuild the newest into a scratch copy of the shop four times a year, because a backup is only proven by restoring it.',
         'Configured Windows security patches to install overnight while holding major upgrades for manual installs, so the operating system cannot change under the shop mid-service.',
       ],
@@ -127,9 +157,10 @@ export const otherProjects = [
   {
     name: 'AntiqChain',
     blurb:
-      'Developed a marketplace for antiques that records each item’s ownership ' +
-      'history on a blockchain, so it cannot be quietly rewritten later, with ' +
-      'logins and printable certificates. University capstone project.',
+      'Led a team of 4 as project manager and architect on a marketplace for ' +
+      'antiques that records each item’s ownership history on a blockchain, so ' +
+      'it cannot be quietly rewritten later, with logins and printable ' +
+      'certificates. University capstone project.',
     stack: ['Node.js', 'Express', 'MongoDB', 'Solidity / Hardhat', 'ethers.js'],
     demoUrl: '',
     repoUrl: 'https://github.com/phuanh20001/AntiqueSystem',
@@ -145,26 +176,6 @@ export const otherProjects = [
     stack: ['Python', 'FastAPI', 'SQLite', 'Kotlin / Android', 'Cryptography'],
     demoUrl: '',
     repoUrl: 'https://github.com/phuanh20001/Identity',
-    note: '',
-  },
-  {
-    name: 'CryptoWallet',
-    blurb:
-      'Built an Ethereum wallet to send and receive cryptocurrency and check ' +
-      'balances, with a React front end over a Node.js backend.',
-    stack: ['Node.js', 'Express', 'ethers.js', 'React'],
-    demoUrl: '',
-    repoUrl: 'https://github.com/phuanh20001/CryptoWallet',
-    note: '',
-  },
-  {
-    name: 'WEThair',
-    blurb:
-      'Programmed an Android weather app with city search, saved favourites, ' +
-      'and current conditions plus a five-day forecast as charts.',
-    stack: ['Java', 'Android', 'Retrofit', 'MPAndroidChart'],
-    demoUrl: '',
-    repoUrl: 'https://github.com/phuanh20001/WEThair',
     note: '',
   },
 ]

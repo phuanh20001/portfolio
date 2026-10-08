@@ -82,19 +82,35 @@
 
     <div class="entry">
       <div class="head">
-        <span><b>Ichi Cafe</b>, <i>Waiter and Sole Developer of Muster POS</i>, Kippax, ACT</span>
-        <span class="when">2023&ndash;Present</span>
+        <span><b>Ichi Cafe</b>, <i>Software Engineer (Part-time)</i>, Kippax, ACT</span>
+        <span class="when">2026&ndash;Present</span>
       </div>
       <p class="links"><a href="https://musterpos.com">musterpos.com</a> | <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a> | Live demo: <a href="https://dreamy-cafe.vercel.app/login">dreamy-cafe.vercel.app</a> (staff PIN 1111)</p>
       <ul>
-        <li>Developed Muster POS (Next.js, PostgreSQL, Prisma) in 2026 to speed up counter service; deployed it on the cafe&rsquo;s own computer and maintain it alone; every sale the cafe makes runs through it</li>
+        <li>Built Muster POS (Next.js, PostgreSQL, Prisma) as a self-funded project in 2026; once every sale ran through it, moved into a paid role to maintain it and build the cafe&rsquo;s website and online ordering</li>
         <li>Integrated Stripe, Square and bank EFTPOS behind one payment interface with identical till behaviour; each sale records its processor so refunds return through the original provider</li>
         <li>Wrote the low-level messaging for a direct link to the bank&rsquo;s card terminal instead of a ready-made plugin, letting the cafe move in-store payments from Square to its bank&rsquo;s lower card rate; passed Linkly accreditation in September 2026, listed in <a href="https://linkly.com.au/resources-support/accredited-pos-vendors/">Linkly&rsquo;s public directory</a></li>
         <li>Implemented exact decimal arithmetic for all money calculations to avoid floating-point rounding errors; built a report that flags any sale differing from the payment provider by one cent</li>
-        <li>Automated releases with 500+ checks and automatic rollback, proved with deliberately broken updates on the live till; verified nightly backups with quarterly full restores</li>
-        <li>Traced the front printer dropping out mid-service to 8 connections per docket using its own network counters; cut it to 1 and added a 20-second back-off and daily health tracking</li>
-        <li>Built the cafe&rsquo;s website, online ordering, offline mode, a loyalty card, table bookings and tax reporting</li>
+        <li>Automated releases gated by 700+ tests (Node.js test runner), ESLint and GitHub Actions, with automatic rollback proven by deploying deliberately broken builds to the live till after hours; verified nightly backups with quarterly full restores</li>
+        <li>Traced mid-service printer dropouts to 8 connections per docket; cut it to 1 and added a retry back-off</li>
       </ul>
+    </div>
+
+    <div class="entry">
+      <div class="head">
+        <span><b>Onyamarks</b>, <i>Web Development Intern</i></span>
+        <span class="when">Nov 2025&ndash;Feb 2026</span>
+      </div>
+      <ul>
+        <li>Designed front-end layouts in Canva and made small code changes for a web design and SEO agency; supported its SEO work, including Google Business Profile updates</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="head">
+        <span><b>Ichi Cafe</b>, <i>Waiter</i>, Kippax, ACT</span>
+        <span class="when">2023&ndash;Present</span>
+      </div>
     </div>
 
     <div class="entry">
@@ -103,8 +119,7 @@
         <span class="when">2023&ndash;Present</span>
       </div>
       <ul>
-        <li>Cover counter, kitchen and some manager shifts in a high-volume fast-food restaurant; count stock, call kitchen production and keep system stock levels current</li>
-        <li>Drew on the restaurant&rsquo;s tablet ordering to design Muster POS&rsquo;s staff clock-in, stock tracking and front/kitchen split, adapted to printed dockets for the cafe</li>
+        <li>Cover counter, kitchen and some manager shifts in a high-volume fast-food restaurant</li>
       </ul>
     </div>
   </section>
@@ -113,7 +128,7 @@
     <h2>Education</h2>
     <div class="entry">
       <div class="head">
-        <span><b>Crown Institute of Higher Education</b>, <i>Bachelor of Information Technology</i>, Australia</span>
+        <span><b>Crown Institute of Higher Education</b>, <i>Bachelor of Information Technology</i>, Canberra, ACT</span>
         <span class="when">2023&ndash;2026</span>
       </div>
     </div>
@@ -134,7 +149,7 @@
         <span class="when"><a href="https://github.com/phuanh20001/AntiqueSystem">github.com/phuanh20001/AntiqueSystem</a></span>
       </div>
       <ul>
-        <li>Developed an antiques marketplace that records each item&rsquo;s ownership history on a blockchain so it cannot be quietly rewritten, with logins and printable certificates (Node.js, Express, MongoDB, Solidity)</li>
+        <li>Led a team of 4 as project manager and architect on an antiques marketplace that records each item&rsquo;s ownership history on a blockchain so it cannot be quietly rewritten (Node.js, Express, MongoDB, Solidity)</li>
       </ul>
     </div>
 
@@ -148,33 +163,15 @@
       </ul>
     </div>
 
-    <div class="entry">
-      <div class="head">
-        <span><b>CryptoWallet</b>, <i>Ethereum wallet</i></span>
-        <span class="when"><a href="https://github.com/phuanh20001/CryptoWallet">github.com/phuanh20001/CryptoWallet</a></span>
-      </div>
-      <ul>
-        <li>Built a wallet to send and receive cryptocurrency and check balances (React, Node.js)</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="head">
-        <span><b>WEThair</b>, <i>Android weather app</i></span>
-        <span class="when"><a href="https://github.com/phuanh20001/WEThair">github.com/phuanh20001/WEThair</a></span>
-      </div>
-      <ul>
-        <li>Programmed city search with saved favourites, current conditions and five-day forecast charts (Java)</li>
-      </ul>
-    </div>
   </section>
 
   <section class="skills">
     <h2>Skills</h2>
-    <p><b>Programming &amp; data:</b> JavaScript, Java, Python, SQL, PostgreSQL, MongoDB, SQLite</p>
-    <p><b>Web:</b> React, Next.js, Node.js, Express, FastAPI, Prisma, Tailwind CSS</p>
+    <p><b>Programming &amp; data:</b> JavaScript, Java, Kotlin, Python, SQL, Solidity, PostgreSQL, MongoDB, SQLite</p>
+    <p><b>Web &amp; mobile:</b> React, Next.js, Node.js, Express, FastAPI, Prisma, Tailwind CSS, Android</p>
     <p><b>Payments:</b> Stripe, Square, Linkly / PC-EFTPOS card terminals</p>
-    <p><b>Other:</b> Android (Java/Kotlin), Solidity, Git, Vercel, Cloudflare, Windows server administration</p>
+    <p><b>Testing &amp; DevOps:</b> Node.js test runner, ESLint, GitHub Actions, Git, PowerShell, Cloudflare, Vercel</p>
+    <p><b>Practices:</b> AI-assisted development with guardrails, CI/CD, Windows server administration</p>
     <p><b>Languages:</b> Vietnamese (native), English (fluent)</p>
   </section>
 
