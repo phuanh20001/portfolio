@@ -44,7 +44,7 @@ export const profile = {
     { group: 'Web & mobile', items: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'Prisma', 'Tailwind CSS', 'Android'] },
     { group: 'Payments', items: ['Stripe', 'Square', 'Linkly / PC-EFTPOS card terminals'] },
     { group: 'Testing & DevOps', items: ['Node.js test runner', 'ESLint', 'GitHub Actions', 'Git', 'PowerShell', 'Cloudflare', 'Vercel'] },
-    { group: 'Practices', items: ['AI-assisted development with guardrails', 'CI/CD', 'Windows server administration'] },
+    { group: 'Practices', items: ['AI coding agents (Claude Code) with guardrails', 'CI/CD', 'Windows server administration'] },
   ],
 
   // Work history. Most recent first. Delete the array if you have none yet and
@@ -124,6 +124,7 @@ export const featuredProject = {
         "Integrated three card payment providers (Stripe, Square and the bank's EFTPOS terminal) behind one interface, so the till behaves the same whichever is switched on. Recorded the processor on every sale, so a refund always goes back the way the money came in.",
         "Connected the till straight to the bank's card reader, writing the low-level messaging instead of using a ready-made plugin. Passed Linkly's accreditation in September 2026 (listed in their public directory), letting the cafe move its in-store card payments from Square to its bank's lower card rate that month.",
         'Implemented exact decimal arithmetic for every money calculation, avoiding the small rounding errors ordinary computer maths introduces. Built a report that flags any sale disagreeing with the payment provider by even one cent.',
+        'Developed it with AI coding agents (Claude Code) under guardrails: a written project spec the agent works from, critical rules loaded into every session, a hook that blocks any command that could cut remote access to the live till and asks before anything that could take the shop offline, and 700+ tests that gate every release.',
         'Added online ordering for pickup, a loyalty stamp card, one-off and weekly table bookings, staff clock-in, and the daily sales and tax reporting the owner uses.',
         "Created the cafe's public website as a static site hosted apart from the till, with business details for Google search, delivery links, and an Order Online button that hands customers straight to the till's online ordering. A pre-deploy check catches broken search data and wrong order links, two faults that otherwise fail silently.",
       ],
