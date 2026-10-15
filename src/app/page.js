@@ -42,9 +42,9 @@ function LinkButton({ href, children, primary }) {
   )
 }
 
-function Section({ id, title, children }) {
+function Section({ id, title, children, className = '' }) {
   return (
-    <section id={id} className="mt-16 scroll-mt-8">
+    <section id={id} className={`mt-16 scroll-mt-8 ${className}`.trim()}>
       <Reveal>
         <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">
           {title}
@@ -68,55 +68,56 @@ export default function Home() {
   )
 
   return (
-    <main className="relative mx-auto max-w-3xl px-6 py-16 sm:py-24">
+    <main className="relative mx-auto max-w-6xl px-6 sm:px-8 py-16 sm:py-24">
       {/* Subtle background glow — a neutral spotlight, no colour, behind everything. */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-32 left-1/2 h-[480px] w-[880px] max-w-[140vw] -translate-x-1/2 rounded-full bg-gray-200/60 dark:bg-gray-700/20 blur-3xl" />
       </div>
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <header>
-        <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-800/50 px-3 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+      {/* ── Hero + About: side by side on wide screens, stacked on phones ──── */}
+      <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
+        <header>
+          <Reveal>
+            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50/70 dark:bg-gray-800/50 px-3 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              </span>
+              Open to work · Canberra &amp; Remote
             </span>
-            Open to work · Canberra &amp; Remote
-          </span>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <h1 className="mt-5 text-4xl sm:text-5xl font-bold tracking-tight">{profile.name}</h1>
-        </Reveal>
-        <Reveal delay={140}>
-          <p className="mt-3 text-lg text-gray-600 dark:text-gray-400">{profile.tagline}</p>
-        </Reveal>
-        {real(profile.location) && (
-          <Reveal delay={180}>
-            <p className="mt-1 text-sm text-gray-500">{profile.location}</p>
           </Reveal>
+
+          <Reveal delay={80}>
+            <h1 className="mt-5 text-4xl sm:text-5xl font-bold tracking-tight">{profile.name}</h1>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-3 text-lg text-gray-600 dark:text-gray-400">{profile.tagline}</p>
+          </Reveal>
+          {real(profile.location) && (
+            <Reveal delay={180}>
+              <p className="mt-1 text-sm text-gray-500">{profile.location}</p>
+            </Reveal>
+          )}
+
+          <Reveal delay={240}>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {email && <EmailButton email={email} />}
+              {github && <LinkButton href={github}>GitHub</LinkButton>}
+              {linkedin && <LinkButton href={linkedin}>LinkedIn</LinkButton>}
+              {website && <LinkButton href={website}>Website</LinkButton>}
+              {resumePdf && <LinkButton href={resumePdf}>Résumé (PDF)</LinkButton>}
+            </div>
+          </Reveal>
+        </header>
+
+        {real(profile.about) && (
+          <Section id="about" title="About" className="lg:mt-0">
+            <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
+              {profile.about}
+            </p>
+          </Section>
         )}
-
-        <Reveal delay={240}>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {email && <EmailButton email={email} />}
-            {github && <LinkButton href={github}>GitHub</LinkButton>}
-            {linkedin && <LinkButton href={linkedin}>LinkedIn</LinkButton>}
-            {website && <LinkButton href={website}>Website</LinkButton>}
-            {resumePdf && <LinkButton href={resumePdf}>Résumé (PDF)</LinkButton>}
-          </div>
-        </Reveal>
-      </header>
-
-      {/* ── About ────────────────────────────────────────────────────────── */}
-      {real(profile.about) && (
-        <Section id="about" title="About">
-          <p className="text-base leading-relaxed text-gray-700 dark:text-gray-300">
-            {profile.about}
-          </p>
-        </Section>
-      )}
+      </div>
 
       {/* ── Featured project: Muster POS ─────────────────────────────────── */}
       <Section id="featured" title="Current work">
@@ -157,25 +158,27 @@ export default function Home() {
             </p>
           )}
 
-          <p className="mt-4 text-base leading-relaxed text-gray-700 dark:text-gray-300">
+          <p className="mt-4 max-w-prose text-base leading-relaxed text-gray-700 dark:text-gray-300">
             {featuredProject.blurb}
           </p>
 
-          {featuredProject.highlights.map((g) => (
-            <div key={g.group} className="mt-6">
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                {g.group}
-              </h4>
-              <ul className="mt-3 space-y-2">
-                {g.items.map((h, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
-                    <span className="leading-relaxed">{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-10">
+            {featuredProject.highlights.map((g) => (
+              <div key={g.group}>
+                <h4 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                  {g.group}
+                </h4>
+                <ul className="mt-3 space-y-2">
+                  {g.items.map((h, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
+                      <span className="leading-relaxed">{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
           <div className="mt-6 flex flex-wrap gap-2">
             {featuredProject.stack.map((s) => (
@@ -251,7 +254,7 @@ export default function Home() {
       {/* ── Experience ───────────────────────────────────────────────────── */}
       {hasExperience && (
         <Section id="experience" title="Experience">
-          <div className="space-y-8">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-x-12">
             {profile.experience.map((e, i) => (
               <div key={i}>
                 <div className="flex items-baseline justify-between gap-4 flex-wrap">
@@ -281,7 +284,7 @@ export default function Home() {
       {/* ── Education ─────────────────────────────────────────────────────── */}
       {hasEducation && (
         <Section id="education" title="Education">
-          <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2 md:gap-x-12">
             {profile.education.map((e, i) => (
               <div key={i} className="flex items-baseline justify-between gap-4 flex-wrap">
                 <div>
