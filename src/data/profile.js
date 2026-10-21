@@ -7,7 +7,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const profile = {
-  name: 'Ngoc Phu Anh (John) Nguyen',
+  name: 'Ngoc Phu Anh Nguyen',
   // The one line under your name: role + specialty.
   tagline: 'Full-stack developer building and running the systems a business trades on, especially anything that touches money.',
   location: 'ACT, Australia',
