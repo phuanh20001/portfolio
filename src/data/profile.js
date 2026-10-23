@@ -40,9 +40,9 @@ export const profile = {
   // Kept short and moved below the work on purpose. A list of tool names proves
   // nothing on its own; it is here mainly because keyword screening software reads it.
   skills: [
-    { group: 'Languages & data', items: ['JavaScript', 'Java', 'Kotlin', 'Python', 'SQL', 'Solidity', 'PostgreSQL', 'MongoDB', 'SQLite'] },
-    { group: 'Web & mobile', items: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'Prisma', 'Tailwind CSS', 'Android'] },
-    { group: 'Payments', items: ['Stripe', 'Square', 'Linkly / PC-EFTPOS card terminals'] },
+    { group: 'Languages & data', items: ['JavaScript', 'SQL', 'PostgreSQL'] },
+    { group: 'Web', items: ['React', 'Next.js', 'Node.js', 'Prisma', 'Tailwind CSS'] },
+    { group: 'Payments & hardware', items: ['Stripe', 'Square', 'Linkly / PC-EFTPOS card terminals', 'ESC/POS receipt printers'] },
     { group: 'Testing & DevOps', items: ['Node.js test runner', 'ESLint', 'GitHub Actions', 'Git', 'PowerShell', 'Cloudflare', 'Vercel'] },
     { group: 'Practices', items: ['AI coding agents (Claude Code) with guardrails', 'CI/CD', 'Windows server administration'] },
   ],
