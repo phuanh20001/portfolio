@@ -29,8 +29,8 @@ export const profile = {
 
   // 2–4 sentences. Who you are, what you're good at, what you're looking for.
   about:
-    'Part-time software engineer at a Canberra cafe and sole developer of Muster POS, the point-of-sale ' +
-    'system it trades on. Designed it to take card payments at the counter and ' +
+    'Sole developer of Muster POS, the point-of-sale system a Canberra cafe ' +
+    'trades on. Designed it to take card payments at the counter and ' +
     "online, print the kitchen's dockets, run bookings and a loyalty card, and keep " +
     "selling when the internet drops out. Deployed it on the shop's own computer, " +
     'took its card terminal integration through Linkly accreditation, and keep it ' +
@@ -51,7 +51,7 @@ export const profile = {
   // the section will hide itself.
   experience: [
     {
-      role: 'Software Engineer (Part-time)',
+      role: 'Software Engineer (Maintenance and Support)',
       company: 'Ichi Cafe',
       location: 'Kippax, ACT',
       period: '2026–Present',
