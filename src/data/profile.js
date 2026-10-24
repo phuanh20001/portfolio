@@ -34,7 +34,7 @@ export const profile = {
     "online, print the kitchen's dockets, run bookings and a loyalty card, and keep " +
     "selling when the internet drops out. Deployed it on the shop's own computer, " +
     'took its card terminal integration through Linkly accreditation, and keep it ' +
-    'running. Recent IT graduate seeking a full-stack or payments role.',
+    'running. Recent IT graduate, open to IT roles in Canberra or remote.',
 
   // Group your skills however you like. Add/remove groups and items freely.
   // Kept short and moved below the work on purpose. A list of tool names proves
@@ -44,7 +44,7 @@ export const profile = {
     { group: 'Web', items: ['React', 'Next.js', 'Node.js', 'Prisma', 'Tailwind CSS'] },
     { group: 'Payments & hardware', items: ['Stripe', 'Square', 'Linkly / PC-EFTPOS card terminals', 'ESC/POS receipt printers'] },
     { group: 'Testing & DevOps', items: ['Node.js test runner', 'ESLint', 'GitHub Actions', 'Git', 'PowerShell', 'Cloudflare', 'Vercel'] },
-    { group: 'Practices', items: ['AI coding agents (Claude Code) with guardrails', 'CI/CD', 'Windows server administration'] },
+    { group: 'Practices', items: ['AI coding agents (Claude Code) with guardrails', 'CI/CD', 'Windows administration'] },
   ],
 
   // Work history. Most recent first. Delete the array if you have none yet and
@@ -173,7 +173,7 @@ export const otherProjects = [
       'Designed a face-recognition sign-in system to practise security ' +
       'engineering, with checks that reject a photo held up to the camera, a ' +
       'one-time code as a second step, and encrypted biometric data so the ' +
-      'original images are never stored.',
+      'original images are never stored. University project.',
     stack: ['Python', 'FastAPI', 'SQLite', 'Kotlin / Android', 'Cryptography'],
     demoUrl: '',
     repoUrl: 'https://github.com/phuanh20001/Identity',
