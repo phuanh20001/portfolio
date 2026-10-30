@@ -30,7 +30,7 @@ export const profile = {
   // 2–4 sentences. Who you are, what you're good at, what you're looking for.
   about:
     'Sole developer of Muster POS, the point-of-sale system a Canberra cafe ' +
-    'trades on. Designed it to take card payments at the counter and ' +
+    'has traded on since August 2026. Designed it to take card payments at the counter and ' +
     "online, print the kitchen's dockets, run bookings and a loyalty card, and keep " +
     "selling when the internet drops out. Deployed it on the shop's own computer, " +
     'took its card terminal integration through Linkly accreditation, and keep it ' +
@@ -107,7 +107,20 @@ export const featuredProject = {
   deployment: {
     customer: 'Ichi Cafe, Kippax ACT',
     url: 'https://ichicafekippax.com',
+    since: 'August 2026',
+    // The real thing, not the demo. This is the first button on the card.
+    liveUrl: 'https://ichicafekippax.com/order',
   },
+  // Third-party proof. Leave url '' to hide the line.
+  accreditation: {
+    label: 'Linkly accredited',
+    linkText: "listed in Linkly's directory",
+    url: 'https://www.linkly.com.au/technical-resources/accredited-pos-vendors.html',
+  },
+  // Both hide until filled in. The quote must be the owner's own words, and the
+  // photo must show no sales figures, customers or staff who haven't agreed.
+  testimonial: { quote: '', author: 'Owner, Ichi Cafe' },
+  photo: { src: '', alt: 'Muster POS on the counter at Ichi Cafe, with its card terminal and docket printer' },
   blurb:
     'The point-of-sale system Ichi Cafe trades on every day. It takes card payments ' +
     "in the shop and online, prints the kitchen's dockets, and runs on the shop's " +
@@ -120,7 +133,7 @@ export const featuredProject = {
     {
       group: 'Building it',
       items: [
-        "Built the cafe's till in 2026 as a self-funded project, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
+        "Built the cafe's till in 2026 as a self-funded project, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
         "Integrated three card payment providers (Stripe, Square and the bank's EFTPOS terminal) behind one interface, so the till behaves the same whichever is switched on. Recorded the processor on every sale, so a refund always goes back the way the money came in.",
         "Connected the till straight to the bank's card reader, writing the low-level messaging instead of using a ready-made plugin. Passed Linkly's accreditation in September 2026 (listed in their public directory), letting the cafe move its in-store card payments from Square to its bank's lower card rate that month.",
         'Implemented exact decimal arithmetic for every money calculation, avoiding the small rounding errors ordinary computer maths introduces. Built a report that flags any sale disagreeing with the payment provider by even one cent.',

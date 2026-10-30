@@ -124,8 +124,9 @@ export default function Home() {
         <article className="group rounded-2xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8 transition duration-300 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg hover:shadow-gray-200/60 dark:hover:shadow-black/40">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <h3 className="text-2xl font-bold">{featuredProject.name}</h3>
-            <div className="flex gap-2">
-              <LinkButton href={featuredProject.demoUrl} primary>Live demo →</LinkButton>
+            <div className="flex flex-wrap gap-2">
+              <LinkButton href={featuredProject.deployment?.liveUrl} primary>Live ordering page →</LinkButton>
+              <LinkButton href={featuredProject.demoUrl}>Try the demo</LinkButton>
               <LinkButton href={featuredProject.siteUrl}>Product site</LinkButton>
               <LinkButton href={featuredProject.repoUrl}>Code</LinkButton>
             </div>
@@ -135,7 +136,7 @@ export default function Home() {
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
               <span className="inline-flex items-center gap-1.5 font-medium text-gray-800 dark:text-gray-200">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-500" aria-hidden="true" />
-                In production
+                In production{real(featuredProject.deployment.since) ? ` since ${featuredProject.deployment.since}` : ''}
               </span>
               {' at '}
               {real(featuredProject.deployment.url) ? (
@@ -158,9 +159,45 @@ export default function Home() {
             </p>
           )}
 
+          {real(featuredProject.accreditation?.url) && (
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              <span className="font-medium text-gray-800 dark:text-gray-200">{featuredProject.accreditation.label}</span>
+              {', '}
+              <a
+                href={featuredProject.accreditation.url}
+                target="_blank"
+                rel="noreferrer"
+                className={
+                  'underline underline-offset-4 decoration-gray-300 dark:decoration-gray-600 hover:decoration-gray-800 dark:hover:decoration-gray-200 transition-colors ' +
+                  focusRing
+                }
+              >
+                {featuredProject.accreditation.linkText}
+              </a>
+            </p>
+          )}
+
           <p className="mt-4 max-w-prose text-base leading-relaxed text-gray-700 dark:text-gray-300">
             {featuredProject.blurb}
           </p>
+
+          {real(featuredProject.photo?.src) && (
+            <img
+              src={featuredProject.photo.src}
+              alt={featuredProject.photo.alt}
+              loading="lazy"
+              className="mt-6 w-full rounded-xl border border-gray-200 dark:border-gray-700"
+            />
+          )}
+
+          {real(featuredProject.testimonial?.quote) && (
+            <figure className="mt-6 border-l-2 border-gray-300 dark:border-gray-600 pl-4">
+              <blockquote className="text-base leading-relaxed text-gray-800 dark:text-gray-200">
+                &ldquo;{featuredProject.testimonial.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-1 text-sm text-gray-500">{featuredProject.testimonial.author}</figcaption>
+            </figure>
+          )}
 
           <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-10">
             {featuredProject.highlights.map((g) => (
