@@ -205,14 +205,19 @@ export default function Home() {
                 <h4 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
                   {g.group}
                 </h4>
-                <ul className="mt-3 space-y-2">
-                  {g.items.map((h, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
-                      <span className="leading-relaxed">{h}</span>
-                    </li>
-                  ))}
-                </ul>
+                {g.sections.map((s) => (
+                  <div key={s.title} className="mt-4">
+                    <h5 className="text-sm font-semibold text-gray-900 dark:text-gray-100">{s.title}</h5>
+                    <ul className="mt-2 space-y-2">
+                      {s.items.map((h, i) => (
+                        <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
+                          <span className="leading-relaxed">{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             ))}
           </div>

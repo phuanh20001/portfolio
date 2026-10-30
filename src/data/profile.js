@@ -137,30 +137,59 @@ export const featuredProject = {
     'own computer, so only the customer-facing pages are reachable from the internet.',
   // The engineering decisions that make it portfolio-worthy. Keep these tight.
   // Two groups on purpose: "Running it" is the half most portfolios cannot show.
+  // The sections inside them let a recruiter jump to one area of the stack.
   // Every claim there is backed by a real test on the shop machine. Never name
   // addresses, remote-access tools or schedules: the cafe is named on this page.
   highlights: [
     {
       group: 'Building it',
-      items: [
-        "Built the cafe's till in 2026 as a self-funded project, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
-        "Integrated three card payment providers (Stripe, Square and the bank's EFTPOS terminal) behind one interface, so the till behaves the same whichever is switched on. Recorded the processor on every sale, so a refund always goes back the way the money came in.",
-        "Connected the till straight to the bank's card reader, writing the low-level messaging instead of using a ready-made plugin. Passed Linkly's accreditation in September 2026 (listed in their public directory), letting the cafe move its in-store card payments from Square to its bank's lower card rate that month.",
-        'Implemented exact decimal arithmetic for every money calculation, avoiding the small rounding errors ordinary computer maths introduces. Built a report that flags any sale disagreeing with the payment provider by even one cent.',
-        'Developed it with AI coding agents (Claude Code) under guardrails: a written project spec the agent works from, critical rules loaded into every session, a hook that blocks any command that could cut remote access to the live till and asks before anything that could take the shop offline, and 700+ tests that gate every release.',
-        'Added online ordering for pickup, a loyalty stamp card, one-off and weekly table bookings, staff clock-in, and the daily sales and tax reporting the owner uses.',
-        "Created the cafe's public website as a static site hosted apart from the till, with business details for Google search, delivery links, and an Order Online button that hands customers straight to the till's online ordering. A pre-deploy check catches broken search data and wrong order links, two faults that otherwise fail silently.",
+      sections: [
+        {
+          title: 'Planning',
+          items: [
+            "Built the cafe's till in 2026 as a self-funded project, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
+            "Designed it around how the shop runs: it lives on the shop's own computer, so orders and cash sales keep going if the internet drops, and it runs on hardware the shop chooses.",
+            'Developed it with AI coding agents (Claude Code) under guardrails: a written project spec the agent works from, critical rules loaded into every session, a hook that blocks any command that could cut remote access to the live till and asks before anything that could take the shop offline, and 700+ tests that gate every release.',
+          ],
+        },
+        {
+          title: 'Core features',
+          items: [
+            'Added online ordering for pickup, a loyalty stamp card, one-off and weekly table bookings, staff clock-in, and the daily sales and tax reporting the owner uses.',
+            "Created the cafe's public website as a static site hosted apart from the till, with business details for Google search, delivery links, and an Order Online button that hands customers straight to the till's online ordering. A pre-deploy check catches broken search data and wrong order links, two faults that otherwise fail silently.",
+          ],
+        },
+        {
+          title: 'Payments',
+          items: [
+            "Integrated three card payment providers (Stripe, Square and the bank's EFTPOS terminal) behind one interface, so the till behaves the same whichever is switched on. Recorded the processor on every sale, so a refund always goes back the way the money came in.",
+            "Connected the till straight to the bank's card reader, writing the low-level messaging instead of using a ready-made plugin. Passed Linkly's accreditation in September 2026 (listed in their public directory), letting the cafe move its in-store card payments from Square to its bank's lower card rate that month.",
+            'Implemented exact decimal arithmetic for every money calculation, avoiding the small rounding errors ordinary computer maths introduces. Built a report that flags any sale disagreeing with the payment provider by even one cent.',
+          ],
+        },
       ],
     },
     {
       group: 'Running it',
-      items: [
-        'Administer the till remotely on a screenless computer in the back of the shop, outside trading hours, and fix anything that breaks before opening, ahead of staff arriving. Guard every change that could cut off that remote access with a timer that reverts it unless cancelled.',
-        "Diagnosed the front printer dropping out mid-service in September: its own network counters showed the till's code opening eight connections for every docket, more than the printer's small buffer could keep up with. Cut that to one connection per docket, left a printer that stops answering alone for 20 seconds instead of retrying into it, and added a daily job that records those counters so a struggling printer shows up in the numbers before staff notice.",
-        'Set the machine to switch itself back on after a power cut, tested by pulling the plug at the wall. Added a check after every restart that confirms the till is actually serving and emails what broke if it is not, plus an alert when the machine never checks in at all.',
-        'Automated updates after close: 700+ tests (Node.js test runner) and ESLint run in GitHub Actions on every push and again before the till is stopped, and an update that leaves it unhealthy rolls back automatically. Proved both with deliberately broken updates on the live machine outside trading hours; the rollback test caught a bug that would have reported a failed rollback as a success.',
-        'Set up nightly backups, kept on the machine and off site, each read back before it counts. Rebuild the newest into a scratch copy of the shop four times a year, because a backup is only proven by restoring it.',
-        'Configured Windows security patches to install overnight while holding major upgrades for manual installs, so the operating system cannot change under the shop mid-service.',
+      sections: [
+        {
+          title: 'Hosting and updates',
+          items: [
+            'Administer the till remotely on a screenless computer in the back of the shop, outside trading hours, and fix anything that breaks before opening, ahead of staff arriving. Guard every change that could cut off that remote access with a timer that reverts it unless cancelled.',
+            'Automated updates after close: 700+ tests (Node.js test runner) and ESLint run in GitHub Actions on every push and again before the till is stopped, and an update that leaves it unhealthy rolls back automatically. Proved both with deliberately broken updates on the live machine outside trading hours; the rollback test caught a bug that would have reported a failed rollback as a success.',
+            'Set up nightly backups, kept on the machine and off site, each read back before it counts. Rebuild the newest into a scratch copy of the shop four times a year, because a backup is only proven by restoring it.',
+            'Configured Windows security patches to install overnight while holding major upgrades for manual installs, so the operating system cannot change under the shop mid-service.',
+          ],
+        },
+        {
+          title: 'Hardware and networking',
+          items: [
+            'Set the machine to switch itself back on after a power cut, tested by pulling the plug at the wall. Added a check after every restart that confirms the till is actually serving and emails what broke if it is not, plus an alert when the machine never checks in at all.',
+            "Diagnosed the front printer dropping out mid-service in September: its own network counters showed the till's code opening eight connections for every docket, more than the printer's small buffer could keep up with. Cut that to one connection per docket, left a printer that stops answering alone for 20 seconds instead of retrying into it, and added a daily job that records those counters so a struggling printer shows up in the numbers before staff notice.",
+            "Kept staff screens on the shop's private network and put only the customer pages online through Cloudflare, behind an allowlist that refuses everything else. Tested it from outside with about 70 requests and found no data leak.",
+            "Traced a till with no internet to a blocking rule on the shop's router: the router still answered, but every hop after it timed out, which ruled out the computer.",
+          ],
+        },
       ],
     },
   ],
