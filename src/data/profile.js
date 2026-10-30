@@ -117,9 +117,19 @@ export const featuredProject = {
     linkText: "listed in Linkly's directory",
     url: 'https://www.linkly.com.au/technical-resources/accredited-pos-vendors.html',
   },
-  // Both hide until filled in. The quote must be the owner's own words, and the
-  // photo must show no sales figures, customers or staff who haven't agreed.
-  testimonial: { quote: '', author: 'Owner, Ichi Cafe' },
+  // Both hide until filled in. The quote must be the owner's own words (tidied
+  // wording only, and he sees it first), and the photo must show no sales
+  // figures, customers or staff who haven't agreed.
+  testimonial: {
+    quote:
+      'Muster puts our walk-in and online orders on one screen. We used to run two ' +
+      'separate apps, which sometimes confused staff. It also covers transactions, ' +
+      'the dashboard, stock counts and staff hours. The biggest benefit is that it ' +
+      "works with Linkly, so in the shop we can use our own bank's terminal instead of " +
+      'being tied to a generic POS like Square. That gives us same-day settlement and ' +
+      'lower transaction fees, which save us a lot of money.',
+    author: 'Owner, Ichi Cafe',
+  },
   photo: { src: '', alt: 'Muster POS on the counter at Ichi Cafe, with its card terminal and docket printer' },
   blurb:
     'The point-of-sale system Ichi Cafe trades on every day. It takes card payments ' +
