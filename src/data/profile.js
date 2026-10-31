@@ -149,7 +149,7 @@ export const featuredProject = {
         {
           title: 'Planning',
           items: [
-            "Built the cafe's till in 2026 as a self-funded project, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
+            "Built the cafe's till in 2026 as a self-funded project, at night alongside hospitality work, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
             'Designed it around how the shop runs: it lives on a computer in the shop, so orders and cash sales keep going if the internet drops, and it works on hardware the shop chooses.',
             'Wrote the documents a live shop needs: a launch checklist, a guide for when something goes wrong, a one-page staff guide, and a plan for moving to a new computer safely.',
             'Developed it with AI coding agents (Claude Code) with guardrails: a written plan the agents follow, automatic checks on anything that could cut access to the live till or take the shop offline, and 700+ automated tests before every release.',
