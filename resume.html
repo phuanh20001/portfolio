@@ -57,8 +57,10 @@
   .head .when { white-space: nowrap; }
   .links { margin: 0; }
 
-  ul { margin: 1pt 0 0; padding-left: 16pt; }
-  li { margin: 0 0 1pt; }
+  /* Real bullet characters: Chromium draws list markers as shapes, which leaves them out of the PDF text that application software reads. */
+  ul { margin: 1pt 0 0; padding-left: 16pt; list-style: none; }
+  li { margin: 0 0 1pt; position: relative; }
+  li::before { content: "\2022"; position: absolute; left: -10pt; }
 
   .skills p { margin: 0 0 1pt; }
 </style>
@@ -100,7 +102,7 @@
         <span class="when">Nov 2025&ndash;Feb 2026</span>
       </div>
       <ul>
-        <li>Designed front-end layouts in Canva and made small code changes for a web design and SEO agency; supported its SEO work, including Google Business Profile updates</li>
+        <li>Designed front-end layouts in Canva, made small code changes and supported SEO at a web agency</li>
       </ul>
     </div>
 
@@ -147,7 +149,7 @@
         <span class="when"><a href="https://github.com/phuanh20001/AntiqueSystem">github.com/phuanh20001/AntiqueSystem</a></span>
       </div>
       <ul>
-        <li>Led a team of 4 as project manager and architect on an antiques marketplace that records each item&rsquo;s ownership history on a blockchain so it cannot be quietly rewritten (Node.js, Express, MongoDB, Solidity)</li>
+        <li>Led a team of 4 as project manager and architect on an antiques marketplace that records each authenticity decision on a blockchain so it cannot be quietly rewritten (Node.js, Express, MongoDB, Solidity)</li>
       </ul>
     </div>
 

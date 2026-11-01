@@ -231,7 +231,7 @@ export const otherProjects = [
     name: 'AntiqChain',
     blurb:
       'Led a team of 4 as project manager and architect on a marketplace for ' +
-      'antiques that records each item’s ownership history on a blockchain, so ' +
+      'antiques that records each expert’s authenticity decision on a blockchain, so ' +
       'it cannot be quietly rewritten later, with logins and printable ' +
       'certificates. University capstone project.',
     stack: ['Node.js', 'Express', 'MongoDB', 'Solidity / Hardhat', 'ethers.js'],
