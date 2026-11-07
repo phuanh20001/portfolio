@@ -5,9 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ngoc Phu Anh Nguyen Résumé</title>
 <style>
-  /* Harvard Mignone Center rules: one column, one body size between 10 and 12pt,
-     equal margins of at least 0.75in, no colour or shading. */
-  @page { size: A4; margin: 0.75in; }
+  /* DEVELOPER MASTER. Modern Australian layout since 2026-11-07 (Harvard version: git history and Documents/Career/Old-CVs). One column, ATS-safe,
+     restyled per SEEK (sans-serif 11pt, clean, no tables/graphics/columns) and GradConnection (skills near
+     the top for graduates); Experience kept above Skills because the Software Engineer title is the strongest signal. One navy accent for the name, headings and rules; colour does not affect parsing.
+     Job titles bold (recruiters scan for titles). Bullets are real characters so application software reads them. */
+  @page { size: A4; margin: 0.7in 0.75in; }
+
+  :root { --accent: #1f3b5c; --rule: #8fa3ba; --muted: #444444; }
 
   * { box-sizing: border-box; }
 
@@ -15,8 +19,8 @@
     margin: 0;
     padding: 0;
     background: #ffffff;
-    color: #000000;
-    font-family: "Times New Roman", Times, serif;
+    color: #1a1a1a;
+    font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
     font-size: 11pt;
     line-height: 1.17;
   }
@@ -27,7 +31,7 @@
       max-width: 210mm;
       margin: 0 auto;
       background: #fff;
-      padding: 0.75in;
+      padding: 0.7in 0.75in;
       box-shadow: 0 2px 18px rgba(0,0,0,0.15);
     }
   }
@@ -37,32 +41,36 @@
 
   a { color: inherit; text-decoration: none; }
 
-  header { text-align: center; margin-bottom: 4pt; }
-  h1 { font-size: 16pt; margin: 0 0 2pt; }
-  .contact { margin: 0; }
+  header { padding-bottom: 5pt; border-bottom: 1.5pt solid var(--accent); }
+  h1 { font-size: 21pt; line-height: 1.1; margin: 0; color: var(--accent); letter-spacing: 0.2pt; }
+  .headline { margin: 1pt 0 3pt; font-size: 12pt; color: var(--muted); }
+  .contact { margin: 0; font-size: 10pt; }
 
-  section { margin-top: 8pt; }
+  section { margin-top: 9pt; }
   h2 {
-    font-size: 11pt;
+    font-size: 10.5pt;
     text-transform: uppercase;
-    margin: 0 0 3pt;
-    border-bottom: 1px solid #000;
+    letter-spacing: 0.8pt;
+    color: var(--accent);
+    margin: 0 0 4pt;
+    padding-bottom: 1pt;
+    border-bottom: 0.75pt solid var(--rule);
   }
 
   p { margin: 0; }
 
-  .entry { margin-bottom: 5pt; break-inside: avoid; }
+  .entry { margin-bottom: 6pt; break-inside: avoid; }
   .entry:last-child { margin-bottom: 0; }
   .head { display: flex; justify-content: space-between; column-gap: 12pt; }
-  .head .when { white-space: nowrap; }
-  .links { margin: 0; }
+  .head b { color: #000; }
+  .head .when { white-space: nowrap; color: var(--muted); }
+  .links { margin: 1pt 0 0; font-size: 10pt; color: var(--accent); }
 
-  /* Real bullet characters: Chromium draws list markers as shapes, which leaves them out of the PDF text that application software reads. */
-  ul { margin: 1pt 0 0; padding-left: 16pt; list-style: none; }
-  li { margin: 0 0 1pt; position: relative; }
-  li::before { content: "\2022"; position: absolute; left: -10pt; }
+  ul { margin: 2pt 0 0; padding-left: 14pt; list-style: none; }
+  li { margin: 0 0 1.5pt; position: relative; }
+  li::before { content: "\2022"; position: absolute; left: -10pt; color: var(--accent); }
 
-  .skills p { margin: 0 0 1pt; }
+  .skills p { margin: 0 0 1.5pt; }
 </style>
 </head>
 <body>
@@ -70,7 +78,8 @@
 
   <header>
     <h1>Ngoc Phu Anh Nguyen</h1>
-    <p class="contact">ACT, Australia | Full work rights | <a href="tel:+61412404185">0412 404 185</a> | <a href="mailto:john.phuanhnguyen.dev@gmail.com">john.phuanhnguyen.dev@gmail.com</a></p>
+    <p class="headline">Full-Stack Developer | Payments and Integrations</p>
+    <p class="contact">Canberra, ACT | Full work rights | <a href="tel:+61412404185">0412 404 185</a> | <a href="mailto:john.phuanhnguyen.dev@gmail.com">john.phuanhnguyen.dev@gmail.com</a></p>
     <p class="contact"><a href="https://www.linkedin.com/in/john-phuanhnguyen-dev">linkedin.com/in/john-phuanhnguyen-dev</a> | <a href="https://github.com/phuanh20001">github.com/phuanh20001</a> | <a href="https://johnnguyen-portfolio.vercel.app">johnnguyen-portfolio.vercel.app</a></p>
   </header>
 
@@ -84,12 +93,12 @@
 
     <div class="entry">
       <div class="head">
-        <span><b>Ichi Cafe</b>, <i>Software Engineer (Maintenance and Support)</i>, Kippax, ACT</span>
+        <span><b>Software Engineer (Maintenance and Support)</b>, Ichi Cafe, Kippax, ACT</span>
         <span class="when">2026&ndash;Present</span>
       </div>
-      <p class="links"><a href="https://musterpos.com">musterpos.com</a> | <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a> | Live demo: <a href="https://dreamy-cafe.vercel.app/login">dreamy-cafe.vercel.app</a> (staff PIN 1111)</p>
+      <p class="links"><a href="https://musterpos.com">musterpos.com</a> | <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a> | Live demo: <a href="https://demo.musterpos.com/login">demo.musterpos.com</a> (staff PIN 1111)</p>
       <ul>
-        <li>Built Muster POS (Next.js, PostgreSQL, Prisma) as a self-funded project in 2026; once every in-store sale ran through it, moved into a paid role to maintain and support it and build the cafe&rsquo;s website and online ordering</li>
+        <li>Built Muster POS (Next.js, PostgreSQL, Prisma) as a self-funded project in 2026; once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe&rsquo;s website and online ordering</li>
         <li>Connected Stripe, Square and the bank&rsquo;s card terminal so the till works the same with any of them; refunds go back the way the money came in, and a report flags any sale that is out by even one cent</li>
         <li>Built the direct connection to the bank&rsquo;s card terminal instead of using a ready-made plugin, letting the cafe move in-store payments from Square to its bank&rsquo;s lower card rate; passed accreditation in September 2026 with Linkly, which connects tills to bank terminals (listed in <a href="https://www.linkly.com.au/technical-resources/accredited-pos-vendors.html">Linkly&rsquo;s public directory</a>)</li>
         <li>Developed with AI coding agents (Claude Code) with guardrails: a written plan, automatic checks on anything that could cut access to the live till, and 700+ automated tests before every release</li>
@@ -98,7 +107,7 @@
 
     <div class="entry">
       <div class="head">
-        <span><b>Onyamarks</b>, <i>Web Development Intern</i></span>
+        <span><b>Web Development Intern</b>, Onyamarks</span>
         <span class="when">Nov 2025&ndash;Feb 2026</span>
       </div>
       <ul>
@@ -108,14 +117,14 @@
 
     <div class="entry">
       <div class="head">
-        <span><b>Ichi Cafe</b>, <i>Waiter</i>, Kippax, ACT</span>
+        <span><b>Waiter</b>, Ichi Cafe, Kippax, ACT</span>
         <span class="when">2023&ndash;Present</span>
       </div>
     </div>
 
     <div class="entry">
       <div class="head">
-        <span><b>Kingsley&rsquo;s Chicken</b>, <i>Customer and Food Service</i>, Canberra, ACT</span>
+        <span><b>Customer and Food Service</b>, Kingsley&rsquo;s Chicken, Canberra, ACT</span>
         <span class="when">2023&ndash;Present</span>
       </div>
       <ul>
@@ -124,20 +133,13 @@
     </div>
   </section>
 
-  <section>
-    <h2>Education</h2>
-    <div class="entry">
-      <div class="head">
-        <span><b>Crown Institute of Higher Education</b>, <i>Bachelor of Information Technology</i>, Canberra, ACT</span>
-        <span class="when">2023&ndash;2026</span>
-      </div>
-    </div>
-    <div class="entry">
-      <div class="head">
-        <span><b>Saigon University</b>, <i>Bachelor of English Pedagogy</i>, Vietnam</span>
-        <span class="when">2018&ndash;2023</span>
-      </div>
-    </div>
+  <section class="skills">
+    <h2>Technical Skills</h2>
+    <p><b>Programming &amp; data:</b> JavaScript, SQL (PostgreSQL), Python, Java, C#</p>
+    <p><b>Web:</b> React, Next.js, Node.js, Prisma, Tailwind CSS</p>
+    <p><b>Payments &amp; hardware:</b> Stripe, Square, Linkly / PC-EFTPOS card terminals, ESC/POS receipt printers</p>
+    <p><b>Testing &amp; DevOps:</b> Node.js test runner, ESLint, GitHub Actions, CI/CD, Git, PowerShell, Cloudflare, Vercel</p>
+    <p><b>Practices:</b> AI coding agents (Claude Code) with guardrails, Windows administration</p>
   </section>
 
   <section>
@@ -145,39 +147,45 @@
 
     <div class="entry">
       <div class="head">
-        <span><b>AntiqChain</b>, <i>University capstone</i></span>
+        <span><b>AntiqChain</b>, University capstone</span>
         <span class="when"><a href="https://github.com/phuanh20001/AntiqueSystem">github.com/phuanh20001/AntiqueSystem</a></span>
       </div>
       <ul>
-        <li>Led a team of 4 as project manager and architect on an antiques marketplace that records each authenticity decision on a blockchain so it cannot be quietly rewritten (Node.js, Express, MongoDB, Solidity)</li>
+        <li>Led a team of 4 as project manager and architect on an antiques marketplace that records each authenticity decision on a blockchain, so it cannot be quietly rewritten (Node.js, Express, MongoDB, Solidity)</li>
       </ul>
     </div>
 
     <div class="entry">
       <div class="head">
-        <span><b>Identity</b>, <i>University project</i></span>
+        <span><b>Identity</b>, University project</span>
         <span class="when"><a href="https://github.com/phuanh20001/Identity">github.com/phuanh20001/Identity</a></span>
       </div>
       <ul>
         <li>Designed face-recognition sign-in that rejects photos held up to the camera, requires a one-time code, and encrypts biometric data without storing original images (Python, FastAPI, SQLite, Android/Kotlin)</li>
       </ul>
     </div>
-
-  </section>
-
-  <section class="skills">
-    <h2>Skills</h2>
-    <p><b>Programming &amp; data:</b> JavaScript, SQL, PostgreSQL</p>
-    <p><b>Web:</b> React, Next.js, Node.js, Prisma, Tailwind CSS</p>
-    <p><b>Payments &amp; hardware:</b> Stripe, Square, Linkly / PC-EFTPOS card terminals, ESC/POS receipt printers</p>
-    <p><b>Testing &amp; DevOps:</b> Node.js test runner, ESLint, GitHub Actions, Git, PowerShell, Cloudflare, Vercel</p>
-    <p><b>Practices:</b> AI coding agents (Claude Code) with guardrails, CI/CD, Windows administration</p>
-    <p><b>Languages:</b> Vietnamese (native), English (fluent)</p>
   </section>
 
   <section>
-    <h2>Referees</h2>
-    <p>Owner, Ichi Cafe, and Manager, Kingsley&rsquo;s Chicken. Contact details available on request.</p>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="head">
+        <span><b>Bachelor of Information Technology</b>, Crown Institute of Higher Education, Canberra, ACT</span>
+        <span class="when">2023&ndash;2026</span>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="head">
+        <span><b>Bachelor of English Pedagogy</b>, Saigon University, Vietnam</span>
+        <span class="when">2018&ndash;2023</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Languages and Referees</h2>
+    <p><b>Languages:</b> Vietnamese (native), English (fluent)</p>
+    <p><b>Referees:</b> Owner, Ichi Cafe, and two Managers, Kingsley&rsquo;s Chicken. Contact details available on request.</p>
   </section>
 
 </div>
