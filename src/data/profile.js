@@ -40,8 +40,8 @@ export const profile = {
   // Kept short and moved below the work on purpose. A list of tool names proves
   // nothing on its own; it is here mainly because keyword screening software reads it.
   skills: [
-    { group: 'Languages & data', items: ['JavaScript', 'SQL', 'PostgreSQL'] },
-    { group: 'Web', items: ['React', 'Next.js', 'Node.js', 'Prisma', 'Tailwind CSS'] },
+    { group: 'Languages & data', items: ['JavaScript', 'C#', 'SQL', 'PostgreSQL'] },
+    { group: 'Web', items: ['React', 'Next.js', 'Node.js', 'ASP.NET Core (.NET)', 'Prisma', 'Tailwind CSS'] },
     { group: 'Payments & hardware', items: ['Stripe', 'Square', 'Linkly / PC-EFTPOS card terminals', 'ESC/POS receipt printers'] },
     { group: 'Testing & DevOps', items: ['Node.js test runner', 'ESLint', 'GitHub Actions', 'Git', 'PowerShell', 'Cloudflare', 'Vercel'] },
     { group: 'Practices', items: ['AI coding agents (Claude Code) with guardrails', 'CI/CD', 'Windows administration'] },
@@ -227,6 +227,20 @@ export const featuredProject = {
 // Fill these in from your other repos (CryptoWallet, Identity, AntiqueSystem, …).
 // Delete any slot you don't use.
 export const otherProjects = [
+  {
+    name: 'Tavernforge',
+    blurb:
+      'Team project with one other developer: an online tabletop for playing ' +
+      'Dungeons & Dragons, built through design documents, code review and joint ' +
+      'testing. Own its Windows installer: one setup file that lets a ' +
+      'non-technical host run the app and its database on their own PC and invite ' +
+      'players over a secure link, with automatic backups and restore. Also cut ' +
+      'the full test run from 13 to about 8 minutes.',
+    stack: ['C# / .NET 10', 'ASP.NET Core', 'React + TypeScript', 'PostgreSQL', 'Cloudflare Tunnel'],
+    demoUrl: '',
+    repoUrl: '',
+    note: 'Private repository, code on request',
+  },
   {
     name: 'AntiqChain',
     blurb:
