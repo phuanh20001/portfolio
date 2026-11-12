@@ -34,7 +34,9 @@ export const profile = {
     "online, print the kitchen's dockets, run bookings and a loyalty card, and keep " +
     "selling when the internet drops out. Set it up on the shop's own computer, " +
     'got its card terminal connection accredited by Linkly, and keep it ' +
-    'running. Recent IT graduate, open to IT roles in Canberra or remote.',
+    'running. Outside work, builds Tavernforge, an online tabletop for Dungeons & ' +
+    'Dragons, in C# and .NET with one other developer. Recent IT graduate, open to ' +
+    'IT roles in Canberra or remote.',
 
   // Group your skills however you like. Add/remove groups and items freely.
   // Kept short and moved below the work on purpose. A list of tool names proves
@@ -220,6 +222,42 @@ export const featuredProject = {
   siteUrl: 'https://musterpos.com',
 }
 
+// Second project, shown under Muster POS with less weight. A hobby that came from
+// the developers' own D&D group, not coursework. The repository stays PRIVATE (it
+// may hold Wizards of the Coast material): code on request only, never the
+// database. Say "trialled", not "in use", until the group plays on it regularly.
+export const sideProject = {
+  name: 'Tavernforge',
+  label: 'Hobby project, built in a team of two',
+  status: 'Trialled with the group in November 2026',
+  note: 'Private repository, code on request',
+  blurb:
+    'An online tabletop for Dungeons & Dragons, started with one other developer for ' +
+    'the group they play in. Every game needed three apps: Owlbear Rodeo for maps and ' +
+    'tokens, D&D Beyond for character sheets, and Discord for dice. Tavernforge puts ' +
+    "the whole game in one place, with every player's screen updating live.",
+  sections: [
+    {
+      title: 'Owned: the Windows installer',
+      items: [
+        'Built the installer so a host with no IT background can run the game from their own PC: one setup file installs the app and its database, and the host sends players a secure link to join.',
+        'Added backups that run on their own, including one before every new version, and a restore that checks the backup file before it replaces anything.',
+        'Found that the database would not start from a Windows account whose name has Vietnamese letters in it, and fixed it.',
+        'Trialled it with the group: the DM installed it in about four minutes, with a walkthrough, and the players joined over the link.',
+      ],
+    },
+    {
+      title: 'Working as a team',
+      items: [
+        'Plan each piece in stages: a written design, a plan for each stage, then code review and testing together before it is merged.',
+        'Cut the full test run from 13 minutes to about 8, mostly by running tests in parallel, and stopped the browser tests failing at random on a busy computer.',
+        'Built a load test: 15 players across 3 tables moved tokens without a lost update, but drawing a lot of fog on a map froze token moves. Wrote up the cause and a fix for the other developer, who owns that part.',
+      ],
+    },
+  ],
+  stack: ['C# / .NET 10', 'ASP.NET Core', 'SignalR', 'React + TypeScript', 'PostgreSQL', 'Cloudflare Tunnel'],
+}
+
 // Supporting projects. Guidance:
 //  ★ If it has a live demo OR a public repo, give it real links — it counts.
 //  · If it's private with no demo, still list it, but say "code on request".
@@ -227,20 +265,6 @@ export const featuredProject = {
 // Fill these in from your other repos (CryptoWallet, Identity, AntiqueSystem, …).
 // Delete any slot you don't use.
 export const otherProjects = [
-  {
-    name: 'Tavernforge',
-    blurb:
-      'Team project with one other developer: an online tabletop for playing ' +
-      'Dungeons & Dragons, built through design documents, code review and joint ' +
-      'testing. Own its Windows installer: one setup file that lets a ' +
-      'non-technical host run the app and its database on their own PC and invite ' +
-      'players over a secure link, with automatic backups and restore. Also cut ' +
-      'the full test run from 13 to about 8 minutes.',
-    stack: ['C# / .NET 10', 'ASP.NET Core', 'React + TypeScript', 'PostgreSQL', 'Cloudflare Tunnel'],
-    demoUrl: '',
-    repoUrl: '',
-    note: 'Private repository, code on request',
-  },
   {
     name: 'AntiqChain',
     blurb:

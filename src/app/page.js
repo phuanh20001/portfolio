@@ -1,4 +1,4 @@
-import { profile, featuredProject, otherProjects } from '@/data/profile'
+import { profile, featuredProject, sideProject, otherProjects } from '@/data/profile'
 import EmailButton from './EmailButton'
 import Reveal from './Reveal'
 
@@ -224,6 +224,47 @@ export default function Home() {
 
           <div className="mt-6 flex flex-wrap gap-2">
             {featuredProject.stack.map((s) => (
+              <Chip key={s}>{s}</Chip>
+            ))}
+          </div>
+        </article>
+      </Section>
+
+      {/* ── Side project: Tavernforge, a lighter version of the card above ─ */}
+      <Section id="side-project" title="Side project">
+        <article className="group rounded-2xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8 transition duration-300 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg hover:shadow-gray-200/60 dark:hover:shadow-black/40">
+          <div className="flex items-baseline justify-between gap-4 flex-wrap">
+            <h3 className="text-xl font-bold">{sideProject.name}</h3>
+            <span className="text-sm text-gray-500">{sideProject.note}</span>
+          </div>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <span className="font-medium text-gray-800 dark:text-gray-200">{sideProject.label}</span>
+            {' · '}
+            {sideProject.status}
+          </p>
+
+          <p className="mt-4 max-w-prose text-base leading-relaxed text-gray-700 dark:text-gray-300">
+            {sideProject.blurb}
+          </p>
+
+          <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-10">
+            {sideProject.sections.map((s) => (
+              <div key={s.title}>
+                <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100">{s.title}</h4>
+                <ul className="mt-2 space-y-2">
+                  {s.items.map((h, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-gray-700 dark:text-gray-300">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
+                      <span className="leading-relaxed">{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            {sideProject.stack.map((s) => (
               <Chip key={s}>{s}</Chip>
             ))}
           </div>
