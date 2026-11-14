@@ -240,10 +240,10 @@ export const sideProject = {
     {
       title: 'Owned: the Windows installer',
       items: [
-        'Built the installer so a host with no IT background can run the game from their own PC: one setup file installs the app and its database, and the host sends players a secure link to join.',
+        'Built the installer so a host with no IT background can run the game from their own PC: one setup file installs the app and its database, and the host sends players a secure link to join. Because the game is reachable from the internet, an account locks after 10 wrong passwords in 15 minutes.',
         'Added backups that run on their own, including one before every new version, and a restore that checks the backup file before it replaces anything.',
+        'Added updates: when the host opens the app it checks for a new version, asks first, downloads only the files that changed (29 of 1,920 in the first test) and restarts. Tested end to end on a real PC before the first stable release on 14 November 2026.',
         'Found that the database would not start from a Windows account whose name has Vietnamese letters in it, and fixed it.',
-        'Trialled it with the group: the DM installed it in about four minutes, with a walkthrough, and the players joined over the link.',
       ],
     },
     {
@@ -251,7 +251,7 @@ export const sideProject = {
       items: [
         'Plan each piece in stages: a written design, a plan for each stage, then code review and testing together before it is merged.',
         'Cut the full test run from 13 minutes to about 8, mostly by running tests in parallel, and stopped the browser tests failing at random on a busy computer.',
-        'Built a load test: 15 players across 3 tables moved tokens without a lost update, but drawing a lot of fog on a map froze token moves. Wrote up the cause and a fix for the other developer, who owns that part.',
+        'Built a load test: 15 players across 3 tables moved tokens without a lost update, but drawing a lot of fog on a map froze token moves for everyone. The cause: the database layer tracked every point of fog as a separate object, 100,000 on a large map. With the other developer\'s agreement, changed fog to save as one block of JSON, and the largest map now saves in 0.37 seconds instead of over 2 minutes.',
       ],
     },
   ],
