@@ -59,7 +59,7 @@
 
   p { margin: 0; }
 
-  .entry { margin-bottom: 6pt; break-inside: avoid; }
+  .entry { margin-bottom: 4pt; break-inside: avoid; }
   .entry:last-child { margin-bottom: 0; }
   .head { display: flex; justify-content: space-between; column-gap: 12pt; }
   .head b { color: #000; }
@@ -85,7 +85,7 @@
 
   <section>
     <h2>Summary</h2>
-    <p>IT graduate (2026) and full-stack developer focused on payments and integrations. Sole developer of Muster POS, in production since August 2026 as the till a Canberra cafe trades on every day, with a card terminal connection accredited by Linkly. Also builds Tavernforge, a C#/.NET hobby project, in a team of two.</p>
+    <p>IT graduate (2026) and full-stack developer focused on payments and integrations. Sole developer of Muster POS, the Linkly-accredited till a Canberra cafe has traded on every day since August 2026.</p>
   </section>
 
   <section>
@@ -98,10 +98,23 @@
       </div>
       <p class="links"><a href="https://musterpos.com">musterpos.com</a> | <a href="https://github.com/phuanh20001/Muster-POS">github.com/phuanh20001/Muster-POS</a> | Live demo: <a href="https://demo.musterpos.com/login">demo.musterpos.com</a> (staff PIN 1111)</p>
       <ul>
-        <li>Built Muster POS (Next.js, PostgreSQL, Prisma) as a self-funded project in 2026; once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe&rsquo;s website and online ordering</li>
+        <li>Built Muster POS self-funded on free Next.js, PostgreSQL and Prisma and one small PC in the shop: its only cost is a domain, while Lightspeed starts at $79 a month for one register, before add-ons</li>
         <li>Connected Stripe, Square and the bank&rsquo;s card terminal so the till works the same with any of them; refunds go back the way the money came in, and a report flags any sale that is out by even one cent</li>
-        <li>Built the direct connection to the bank&rsquo;s card terminal instead of using a ready-made plugin, letting the cafe move in-store payments from Square to its bank&rsquo;s lower card rate; passed accreditation in September 2026 with Linkly, which connects tills to bank terminals (listed in <a href="https://www.linkly.com.au/technical-resources/accredited-pos-vendors.html">Linkly&rsquo;s public directory</a>)</li>
-        <li>Developed with AI coding agents (Claude Code) with guardrails: a written plan, automatic checks on anything that could cut access to the live till, and 700+ automated tests before every release</li>
+        <li>Built a direct link to the bank&rsquo;s card terminal (no ready-made plugin), moving the cafe&rsquo;s in-store payments to its bank&rsquo;s lower rate; passed Linkly accreditation in September 2026 (in <a href="https://www.linkly.com.au/technical-resources/accredited-pos-vendors.html">Linkly&rsquo;s public directory</a>)</li>
+        <li>Every release must pass 700+ automated tests on card payments, refunds, prices and security checks, run on every push and before each nightly update, as a bad release stops the shop; a failed one rolls back</li>
+        <li>Built with Claude Code under guardrails: a written plan, review of every change, live-till access checks</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="head">
+        <span><b>Software Developer Intern (Project Manager)</b>, Bridgin Automation, Canberra, ACT</span>
+        <span class="when">Sep&ndash;Nov 2026</span>
+      </div>
+      <ul>
+        <li>Led a team of 3 on Koto Kitchen: one kitchen queue for table QR, counter, phone and delivery orders</li>
+        <li>Wrote most of the code (Next.js, PostgreSQL, Prisma, Vercel): kitchen, waiter, counter and menu screens</li>
+        <li>200+ automated tests on order rules, prices and duplicates on every change; 104 phone checks passed</li>
       </ul>
     </div>
 
@@ -131,15 +144,25 @@
         <li>Cover counter, kitchen and some manager shifts in a high-volume fast-food restaurant</li>
       </ul>
     </div>
+
+    <div class="entry">
+      <div class="head">
+        <span><b>Volunteer Web Developer</b>, Our Lady of the Sacred Heart Parish, West Belconnen, ACT</span>
+        <span class="when">Nov 2026&ndash;Present</span>
+      </div>
+      <ul>
+        <li>Designed 3 site options, built a 20-page draft of the one chosen, now moving it onto Framer</li>
+      </ul>
+    </div>
   </section>
 
   <section class="skills">
     <h2>Technical Skills</h2>
-    <p><b>Programming &amp; data:</b> JavaScript, SQL (PostgreSQL), Python, Java, C#</p>
-    <p><b>Web:</b> React, Next.js, Node.js, ASP.NET Core, Prisma, Tailwind CSS</p>
+    <p><b>Programming &amp; data:</b> JavaScript, SQL (PostgreSQL), MongoDB, Python, Java, C#, Solidity</p>
+    <p><b>Web:</b> React, Next.js, Node.js, Express, ASP.NET Core, Prisma, Tailwind CSS</p>
     <p><b>Payments &amp; hardware:</b> Stripe, Square, Linkly / PC-EFTPOS card terminals, ESC/POS receipt printers</p>
     <p><b>Testing &amp; DevOps:</b> Node.js test runner, ESLint, GitHub Actions, CI/CD, Git, PowerShell, Cloudflare, Vercel</p>
-    <p><b>Practices:</b> AI coding agents (Claude Code) with guardrails, Windows administration</p>
+    <p><b>Practices:</b> AI coding agents (Claude Code) with guardrails, Windows administration, SEO, Canva</p>
   </section>
 
   <section>
@@ -151,21 +174,12 @@
         <span class="when">C#/.NET 10, React/TypeScript, PostgreSQL</span>
       </div>
       <ul>
-        <li>Online D&amp;D tabletop, built so our group could play in one app, not three (maps, character sheets, dice)</li>
-        <li>Own the Windows installer: one setup file lets a non-technical host run the app and its database on their own PC and invite players over a secure link, with backups, restore and one-click updates</li>
-        <li>Work through design documents and code review; fixed a freeze found by load testing (2 min to 0.37 s)</li>
+        <li>Pitched the idea: one online D&amp;D tabletop for maps, character sheets, dice and chat, live on every screen</li>
+        <li>ASP.NET Core server in 8 modules, a D&amp;D rules engine and SignalR; tested with xUnit, Vitest, Playwright</li>
+        <li>Main area: the Windows installer (invite link, backups, updates) and a load test: freeze cut 2 min to 0.37 s</li>
       </ul>
     </div>
 
-    <div class="entry">
-      <div class="head">
-        <span><b>AntiqChain</b>, University capstone</span>
-        <span class="when"><a href="https://github.com/phuanh20001/AntiqueSystem">github.com/phuanh20001/AntiqueSystem</a></span>
-      </div>
-      <ul>
-        <li>Led a team of 4 as project manager and architect on an antiques marketplace that records each authenticity decision on a blockchain (Node.js, Express, MongoDB, Solidity)</li>
-      </ul>
-    </div>
   </section>
 
   <section>
@@ -185,9 +199,8 @@
   </section>
 
   <section>
-    <h2>Languages and Referees</h2>
-    <p><b>Languages:</b> Vietnamese (native), English (fluent)</p>
-    <p><b>Referees:</b> Owner, Ichi Cafe, and two Managers, Kingsley&rsquo;s Chicken. Contact details available on request.</p>
+    <h2>Languages and Referees (on request)</h2>
+    <p><b>Languages:</b> Vietnamese (native), English (fluent) | <b>Referees:</b> Ichi Cafe owner, two Kingsley&rsquo;s managers</p>
   </section>
 
 </div>

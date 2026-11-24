@@ -60,6 +60,18 @@ export const profile = {
       points: ["Maintain Muster POS, the cafe's till, and build its website and online ordering."],
     },
     {
+      role: 'Software Developer Intern (Project Manager)',
+      company: 'Bridgin Automation',
+      location: 'Canberra, ACT',
+      period: 'Sep–Nov 2026',
+      points: [
+        'Led a team of 3 to build Koto Kitchen, an ordering system that brings table QR, counter, phone and Uber Eats or DoorDash orders into one kitchen queue, with live order tracking for customers.',
+        'Wrote most of the code (Next.js, PostgreSQL, Prisma, live on Vercel): a screen for each kitchen station, a waiter view on the phone, a front counter, email confirmations and a menu and prices screen.',
+        'Agreed the operating rules with the team and mentor, split them into 24 tasks and sent weekly reports. Every change went through a pull request, automated checks and review.',
+        'Every change had to pass 200+ automated tests on order rules, prices and duplicate orders, and all 104 checks on real phones passed.',
+      ],
+    },
+    {
       role: 'Web Development Intern',
       company: 'Onyamarks',
       period: 'Nov 2025–Feb 2026',
@@ -79,6 +91,15 @@ export const profile = {
       location: 'Canberra, ACT',
       period: '2023–Present',
       points: ['Cover counter, kitchen and some manager shifts in a high-volume fast-food restaurant.'],
+    },
+    {
+      role: 'Volunteer Web Developer',
+      company: 'Our Lady of the Sacred Heart Parish',
+      location: 'West Belconnen, ACT',
+      period: 'Nov 2026–Present',
+      points: [
+        'Designed three website options for the parish to choose from, then built a 20-page draft of the chosen design, easy to read on phones. Now moving it onto the parish’s Framer site.',
+      ],
     },
   ],
 
@@ -152,9 +173,10 @@ export const featuredProject = {
           title: 'Planning',
           items: [
             "Built the cafe's till in 2026 as a self-funded project, at night alongside hospitality work, after working its counter since 2023, to fix what slowed service down and what went wrong under pressure. Once every in-store sale ran through it, moved into a paid role to maintain it and build the cafe's website and online ordering.",
+            "Kept it cheap to run, because it started as a self-funded project: free, open-source tools, one small computer in the shop instead of paid cloud hosting, and tills on devices the cafe already had, so the only running cost is the domain name for the online ordering and the website. For comparison, Lightspeed's cheapest restaurant plan in Australia is $79 a month for one register, and online ordering (+$59), bookings (+$69) and each extra register (+$39) cost extra, which comes to $246 a month for those three (Lightspeed's own pricing page, November 2026).",
             'Designed it around how the shop runs: it lives on a computer in the shop, so orders and cash sales keep going if the internet drops, and it works on hardware the shop chooses.',
             'Wrote the documents a live shop needs: a launch checklist, a guide for when something goes wrong, a one-page staff guide, and a plan for moving to a new computer safely.',
-            'Developed it with AI coding agents (Claude Code) with guardrails: a written plan the agents follow, automatic checks on anything that could cut access to the live till or take the shop offline, and 700+ automated tests before every release.',
+            'Developed it with AI coding agents (Claude Code) with guardrails: a written plan the agents follow, automatic checks on anything that could cut access to the live till or take the shop offline, and 700+ automated tests on payments, refunds, prices and security that every release must pass.',
           ],
         },
         {
@@ -191,7 +213,8 @@ export const featuredProject = {
           title: 'Hosting and updates',
           items: [
             'Look after the till remotely on a computer with no screen in the back of the shop, outside trading hours, and fix anything that breaks before staff arrive. Any risky change to that remote access undoes itself unless cancelled.',
-            'Automated updates after close: 700+ tests run first, and an update that leaves the till unhealthy undoes itself. Proved it with deliberately broken updates on the live machine outside trading hours, which caught a bug that would have reported a failed undo as a success.',
+            'Every update must pass 700+ automated tests first. Over half check card payments, refunds and what happens when the card terminal drops out; the rest check prices, discounts and vouchers, the security that stops a customer changing a price, kitchen dockets and reports. They use a fake card terminal that replays real messages recorded from the terminal software, and they run on every push and again on the shop computer before each update, because a bad release stops the shop trading.',
+            'Automated updates after close: an update that leaves the till unhealthy undoes itself. Proved it with deliberately broken updates on the live machine outside trading hours, which caught a bug that would have reported a failed undo as a success.',
             'Set up nightly backups, kept in the shop and off site, each checked after it is made. Restore one to a test copy of the shop four times a year, because a backup only counts once it has been restored.',
             "Set Windows to install security patches overnight and hold big upgrades for manual installs, so the system can't change during service.",
           ],
@@ -238,20 +261,36 @@ export const sideProject = {
     "the whole game in one place, with every player's screen updating live.",
   sections: [
     {
-      title: 'Owned: the Windows installer',
+      title: 'Role in a team of two',
       items: [
-        'Built the installer so a host with no IT background can run the game from their own PC: one setup file installs the app and its database, and the host sends players a secure link to join. Because the game is reachable from the internet, an account locks after 10 wrong passwords in 15 minutes.',
-        'Added backups that run on their own, including one before every new version, and a restore that checks the backup file before it replaces anything.',
-        'Added updates: when the host opens the app it checks for a new version, asks first, downloads only the files that changed (29 of 1,920 in the first test) and restarts. Tested end to end on a real PC before the first stable release on 14 November 2026.',
-        'Found that the database would not start from a Windows account whose name has Vietnamese letters in it, and fixed it.',
+        'Pitched the idea to the group: one place for the whole game, instead of switching between three apps.',
+        'Main area: the Windows installer, backups and updates, and the load test that found the fog freeze. Every other part was read and discussed together before it was built.',
       ],
     },
     {
-      title: 'Working as a team',
+      title: 'What it does',
       items: [
-        'Plan each piece in stages: a written design, a plan for each stage, then code review and testing together before it is merged.',
-        'Cut the full test run from 13 minutes to about 8, mostly by running tests in parallel, and stopped the browser tests failing at random on a busy computer.',
-        'Built a load test: 15 players across 3 tables moved tokens without a lost update, but drawing a lot of fog on a map froze token moves for everyone. The cause: the database layer tracked every point of fog as a separate object, 100,000 on a large map. With the other developer\'s agreement, changed fog to save as one block of JSON, and the largest map now saves in 0.37 seconds instead of over 2 minutes.',
+        'The DM prepares scenes before the game: maps, tokens, drawings and fog of war that is opened up as the group explores. Players see only what the DM shows, and every move, ping, roll and message appears on every screen straight away.',
+        'Players import their characters from D&D Beyond PDFs. A rules engine works out each character sheet from the choices made, and warns about a rule break instead of blocking it.',
+        'Chat with dice commands, private whispers and rolls only the DM can see, plus turn-based combat where the rules engine works out attacks, damage and conditions and the DM keeps the final say.',
+      ],
+    },
+    {
+      title: 'How it is built',
+      items: [
+        'An ASP.NET Core (.NET 10) server split into 8 modules (accounts, campaigns, images, scenes, dice, rules content, characters and combat), each with its own database schema. Automatic architecture tests stop one module reaching into another.',
+        'SignalR keeps every table in sync. Changes to one campaign are applied one at a time, in order, and a player who loses connection gets a fresh copy of the table when they reconnect.',
+        'A React and TypeScript front end with a canvas map editor, served by the same server.',
+        'Safe to open to the internet: no open sign-up (the host creates every account), limits on login attempts and requests, protection against forged requests, and an account lock after 10 wrong passwords in 15 minutes.',
+        "Runs on the host's own Windows PC: one installer sets up the app and its database, players join over a secure link, backups run on their own, and updates download only the files that changed (29 of 1,920 in the first test). First stable release on 14 November 2026.",
+      ],
+    },
+    {
+      title: 'How we work',
+      items: [
+        'Every feature starts as a written spec, then a plan for each stage, code review and a test report before it is merged. About 100 design decisions are written down with the reasons behind them.',
+        'Tested at every level: xUnit for the rules engine and the server, Vitest for screen components, Playwright for tests that play through the app in a real browser, and a load test.',
+        'The load test (15 players across 3 tables) found that drawing a lot of fog froze token moves for everyone, because each point of fog was saved as a separate object. Fog now saves as one block, and the largest map saves in 0.37 seconds instead of over 2 minutes.',
       ],
     },
   ],
