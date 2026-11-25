@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { profile } from '@/data/profile'
+import Nav from './Nav'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
 
@@ -45,7 +46,16 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 antialiased">
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <Nav resumePdf={profile.links.resumePdf} />
         {children}
+        <footer className="mx-auto max-w-6xl px-6 sm:px-8 pb-12">
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-8 text-sm text-gray-500 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <span>© {new Date().getFullYear()} {profile.name}</span>
+            <a href={`mailto:${profile.links.email}`} className="hover:text-gray-900 dark:hover:text-gray-200 transition">{profile.links.email}</a>
+            <a href={profile.links.github} target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-gray-200 transition">GitHub</a>
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-gray-900 dark:hover:text-gray-200 transition">LinkedIn</a>
+          </div>
+        </footer>
       </body>
     </html>
   )

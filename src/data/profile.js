@@ -60,6 +60,15 @@ export const profile = {
       points: ["Maintain Muster POS, the cafe's till, and build its website and online ordering."],
     },
     {
+      role: 'Volunteer Web Developer',
+      company: 'Our Lady of the Sacred Heart Parish',
+      location: 'West Belconnen, ACT',
+      period: 'Nov 2026–Present',
+      points: [
+        'Designed three website options for the parish to choose from, then built a 20-page draft of the chosen design, easy to read on phones. Now moving it onto the parish’s Framer site.',
+      ],
+    },
+    {
       role: 'Software Developer Intern (Project Manager)',
       company: 'Bridgin Automation',
       location: 'Canberra, ACT',
@@ -92,15 +101,24 @@ export const profile = {
       period: '2023–Present',
       points: ['Cover counter, kitchen and some manager shifts in a high-volume fast-food restaurant.'],
     },
-    {
-      role: 'Volunteer Web Developer',
-      company: 'Our Lady of the Sacred Heart Parish',
-      location: 'West Belconnen, ACT',
-      period: 'Nov 2026–Present',
-      points: [
-        'Designed three website options for the parish to choose from, then built a 20-page draft of the chosen design, easy to read on phones. Now moving it onto the parish’s Framer site.',
-      ],
-    },
+  ],
+
+  // The four proof tiles on the home page. Facts only, no cafe sales figures.
+  homeStats: [
+    { value: 'Every day', label: 'a Canberra cafe has traded on Muster POS since August 2026' },
+    { value: '100%', label: 'of its in-store sales go through Muster' },
+    { value: '700+', label: 'automated tests on card payments, refunds, prices and security, run before every update' },
+    { value: '$0', label: 'software subscription: the only running cost is a domain name' },
+  ],
+
+  // The story in one line each, oldest first. Shown as a timeline on the home page.
+  milestones: [
+    { when: '2023', what: 'Started at the counter of Ichi Cafe, Kippax' },
+    { when: 'Jul 2026', what: 'Finished a Bachelor of Information Technology' },
+    { when: 'Aug 2026', what: "Muster POS went live as the cafe's till" },
+    { when: 'Sep 2026', what: 'Card terminal connection accredited by Linkly' },
+    { when: 'Sep–Nov 2026', what: 'Internship at Bridgin Automation, project manager of a team of 3' },
+    { when: 'Nov 2026', what: 'Tavernforge first stable release; volunteer web developer for a local parish' },
   ],
 
   // Education. Delete entries you don't need.
@@ -154,6 +172,23 @@ export const featuredProject = {
     author: 'Owner, Ichi Cafe',
   },
   photo: { src: '', alt: 'Muster POS on the counter at Ichi Cafe, with its card terminal and docket printer' },
+  // Screenshots of the PUBLIC DEMO only (made-up menu, no sales). Never the cafe's real screens.
+  gallery: [
+    { src: '/muster/till.webp', w: 1600, h: 959, alt: 'The Muster till: menu categories on the left, products in the middle, the order on the right', caption: 'The till, used by touch on an iPad or with a mouse on a PC' },
+    { src: '/muster/online-order.webp', w: 520, h: 1125, alt: 'Online pickup ordering on a phone, showing the menu with prices', caption: 'Online ordering on a phone' },
+    { src: '/muster/payments.webp', w: 1600, h: 1000, alt: 'Payment settings where the owner picks the card provider for the counter and for online orders', caption: 'The owner switches card providers without a developer' },
+    { src: '/muster/item.webp', w: 1600, h: 959, alt: 'Adding an iced latte to an order with a box for special instructions', caption: 'Adding a drink with special instructions' },
+  ],
+  // Percentages and counts from the engineering only. Never a figure worked out
+  // from the cafe's sales, takings or card rates (owner condition).
+  stats: [
+    { value: '100%', label: "of the cafe's in-store sales go through Muster" },
+    { value: '100%', label: "of sales checked against the payment provider's records, to the cent" },
+    { value: '~60%', label: 'of the 700+ automated tests cover card payments and refunds' },
+    { value: '87.5%', label: 'fewer printer connections per docket after a fix (8 down to 1)' },
+    { value: '$0', label: "software subscription: the only running cost is the domain name" },
+    { value: '3', label: 'card payment services supported: Stripe, Square and the bank terminal' },
+  ],
   blurb:
     'The point-of-sale system Ichi Cafe trades on every day. It takes card payments ' +
     "in the shop and online, prints the kitchen's dockets, and runs on the shop's " +
@@ -296,6 +331,12 @@ export const sideProject = {
     },
   ],
   stack: ['C# / .NET 10', 'ASP.NET Core', 'SignalR', 'React + TypeScript', 'PostgreSQL', 'Cloudflare Tunnel'],
+  stats: [
+    { value: '99.7%', label: 'faster saving of large maps after the load-test fix (2 min down to 0.37 s)' },
+    { value: '98.5%', label: 'of files skipped by an update: only 29 of 1,920 changed in the first test' },
+    { value: '8', label: 'server modules, each with its own database schema' },
+    { value: '4', label: 'levels of testing: xUnit, Vitest, Playwright and a load test' },
+  ],
 }
 
 // Supporting projects. Guidance:
