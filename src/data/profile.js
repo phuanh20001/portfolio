@@ -133,6 +133,11 @@ export const profile = {
       institution: 'Saigon University, Vietnam',
       period: '2018–2023',
     },
+    {
+      qualification: 'ACS Professional Year Program (ICT)',
+      institution: 'QIBA (Queensland International Business Academy), Canberra, ACT',
+      period: 'In progress',
+    },
   ],
 }
 
